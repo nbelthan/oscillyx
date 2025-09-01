@@ -1,4 +1,6 @@
-# Oscillyx Optimized - On-Chain Generative Art
+# Oscillyx - On-Chain Generative Art NFT on Monad
+
+**Live Demo**: [oscillyx.vercel.app](https://oscillyx.vercel.app)
 
 ## 📁 Project Structure
 
