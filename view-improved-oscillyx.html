@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improved Oscillyx - High Quality On-Chain Art</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0b 0%, #1a1a1b 100%);
+            color: #fff;
+            font-family: 'SF Mono', Monaco, monospace;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            background: linear-gradient(90deg, #FF6A00 0%, #FFD966 50%, #00ffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .improvements-banner {
+            background: rgba(0,255,255,0.1);
+            border: 2px solid rgba(0,255,255,0.3);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .improvements-banner h2 {
+            color: #00ffff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .improvement-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .pill {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .pill.highlight {
+            background: rgba(255,106,0,0.2);
+            border-color: #FF6A00;
+            color: #FFD966;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .stat-card {
+            background: rgba(26,26,27,0.7);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #FF6A00, #FFD966);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #999;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-detail {
+            color: #666;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+        
+        .style-section {
+            margin-bottom: 60px;
+        }
+        
+        .style-header {
+            background: rgba(255,106,0,0.05);
+            border-left: 4px solid #FF6A00;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .style-title {
+            font-size: 1.8em;
+            color: #FF6A00;
+            margin-bottom: 10px;
+        }
+        
+        .style-desc {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .variants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .variant-card {
+            background: #0f0e10;
+            border: 2px solid #222;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .variant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255,106,0,0.3);
+            border-color: #FF6A00;
+        }
+        
+        .svg-container {
+            background: #000;
+            position: relative;
+            aspect-ratio: 1;
+            border-bottom: 1px solid #222;
+        }
+        
+        .svg-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .variant-badges {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .badge {
+            background: rgba(0,0,0,0.8);
+            border: 1px solid;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+        }
+        
+        .badge.size {
+            border-color: #00ffff;
+            color: #00ffff;
+        }
+        
+        .badge.ghosts {
+            border-color: #FF6A00;
+            color: #FFD966;
+        }
+        
+        .variant-info {
+            padding: 20px;
+        }
+        
+        .variant-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        
+        .variant-specs {
+            display: grid;
+            gap: 8px;
+        }
+        
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 12px;
+        }
+        
+        .spec-label {
+            color: #666;
+        }
+        
+        .spec-value {
+            color: #999;
+            font-family: monospace;
+        }
+        
+        .spec-value.highlight {
+            color: #00ffff;
+            font-weight: bold;
+        }
+        
+        .technical-note {
+            background: rgba(255,106,0,0.1);
+            border: 1px solid rgba(255,106,0,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 40px 0;
+        }
+        
+        .technical-note h3 {
+            color: #FF6A00;
+            margin-bottom: 10px;
+        }
+        
+        .technical-note p {
+            color: #ccc;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .technical-note code {
+            background: rgba(0,0,0,0.5);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #FFD966;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Improved Oscillyx</h1>
+        <p class="subtitle">High-quality on-chain generative art with advanced smoothing</p>
+        
+        <div class="improvements-banner">
+            <h2>🚀 Key Improvements from Your Updates</h2>
+            <div class="improvement-pills">
+                <div class="pill highlight">512-entry LUT (no artifacts)</div>
+                <div class="pill highlight">720→240 oversample pipeline</div>
+                <div class="pill">Turn angle filtering (65°)</div>
+                <div class="pill">Hatch pattern textures</div>
+                <div class="pill">Cohort-aware ghosts</div>
+                <div class="pill">Phase separation (+π/3)</div>
+                <div class="pill">MA(3) smoothing</div>
+            </div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">512</div>
+                <div class="stat-label">LUT Entries</div>
+                <div class="stat-detail">High precision trig</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">720→240</div>
+                <div class="stat-label">Sample Pipeline</div>
+                <div class="stat-detail">Oversample + smooth + decimate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2.8-4.0 KB</div>
+                <div class="stat-label">Noir Size</div>
+                <div class="stat-detail">Avg 3.5 KB</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">5.1-6.4 KB</div>
+                <div class="stat-label">Neon Size</div>
+                <div class="stat-detail">Avg 5.6 KB</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">~127K</div>
+                <div class="stat-label">Noir Gas (avg)</div>
+                <div class="stat-detail">~0.0063 ETH @ 50 gwei</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">~173K</div>
+                <div class="stat-label">Neon Gas (avg)</div>
+                <div class="stat-detail">~0.0086 ETH @ 50 gwei</div>
+            </div>
+        </div>
+        
+        <!-- Noir Style Section -->
+        <div class="style-section">
+            <div class="style-header">
+                <h2 class="style-title">🌑 Noir Minimal</h2>
+                <p class="style-desc">Monochrome elegance with subtle ghost strands. Cohort size determines ghost count: Solo (0), Trio (1), Octet (2)</p>
+            </div>
+            
+            <div class="variants-grid">
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">4.0 KB</div>
+                            <div class="badge ghosts">1 Ghost</div>
+                        </div>
+                        <img src="noir-optimized-1.svg" alt="Noir Variant 1">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Noir Trio #1</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472728</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">0</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value highlight">Trio (3 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~137,536</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">4.8 KB</div>
+                            <div class="badge ghosts">1 Ghost</div>
+                        </div>
+                        <img src="noir-optimized-2.svg" alt="Noir Variant 2">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Noir Trio #2</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472728</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">1</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value highlight">Trio (3 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~154,384</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">4.8 KB</div>
+                            <div class="badge ghosts">1 Ghost</div>
+                        </div>
+                        <img src="noir-optimized-3.svg" alt="Noir Variant 3">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Noir Trio #3</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472728</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">2</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value highlight">Trio (3 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~154,896</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">3.3 KB</div>
+                            <div class="badge ghosts">0 Ghosts</div>
+                        </div>
+                        <img src="noir-optimized-4.svg" alt="Noir Variant 4">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Noir Solo #1</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472730</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">0</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value">Solo (1 mint)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~122,864</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">3.5 KB</div>
+                            <div class="badge ghosts">0 Ghosts</div>
+                        </div>
+                        <img src="noir-optimized-5.svg" alt="Noir Variant 5">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Noir Duo #1</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472730</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">1</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value">Duo (2 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~125,568</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Neon Style Section -->
+        <div class="style-section">
+            <div class="style-header">
+                <h2 class="style-title">🔥 Neon Flux</h2>
+                <p class="style-desc">Vibrant orange-gold gradients with multiple ghost layers. Higher cohort sizes create more dramatic compositions.</p>
+            </div>
+            
+            <div class="variants-grid">
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">6.3 KB</div>
+                            <div class="badge ghosts">2 Ghosts</div>
+                        </div>
+                        <img src="neon-optimized-1.svg" alt="Neon Variant 1">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Neon Sextet #1</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472729</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">0</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value highlight">Sextet (6 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~186,560</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">6.3 KB</div>
+                            <div class="badge ghosts">2 Ghosts</div>
+                        </div>
+                        <img src="neon-optimized-2.svg" alt="Neon Variant 2">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Neon Sextet #2</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472729</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">1</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value highlight">Sextet (6 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~188,944</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">6.4 KB</div>
+                            <div class="badge ghosts">2 Ghosts</div>
+                        </div>
+                        <img src="neon-optimized-3.svg" alt="Neon Variant 3">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Neon Sextet #3</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472729</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">2</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value highlight">Sextet (6 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~191,648</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">7.7 KB</div>
+                            <div class="badge ghosts">3 Ghosts</div>
+                        </div>
+                        <img src="neon-optimized-4.svg" alt="Neon Variant 4">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Neon Surge #1</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472731</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">0</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value highlight">Surge! (10 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~218,288</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="variant-card">
+                    <div class="svg-container">
+                        <div class="variant-badges">
+                            <div class="badge size">7.7 KB</div>
+                            <div class="badge ghosts">3 Ghosts</div>
+                        </div>
+                        <img src="neon-optimized-5.svg" alt="Neon Variant 5">
+                    </div>
+                    <div class="variant-info">
+                        <div class="variant-name">Neon Surge #2</div>
+                        <div class="variant-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Block</span>
+                                <span class="spec-value">33472731</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Index</span>
+                                <span class="spec-value">1</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Cohort</span>
+                                <span class="spec-value highlight">Surge! (10 mints)</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Gas Est.</span>
+                                <span class="spec-value">~218,256</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="technical-note">
+            <h3>🔧 Technical Implementation Notes</h3>
+            <p>
+                Your improvements have created a high-quality on-chain rendering pipeline:
+                <br><br>
+                • <code>512-entry LUT</code> prevents the "double outline" artifacts seen with smaller LUTs
+                <br>
+                • <code>720→smooth→240</code> pipeline creates ultra-smooth Lissajous curves
+                <br>
+                • <code>Turn angle filtering (65°)</code> removes backtracking segments
+                <br>
+                • <code>Cohort-aware ghosts</code> create dynamic compositions based on mint density
+                <br>
+                • <code>Phase separation (+π/3)</code> ensures ghosts don't overlap with main strand
+                <br>
+                • <code>Hatch pattern</code> adds subtle texture without significant size increase
+                <br><br>
+                Gas costs are reasonable for on-chain art: ~150-220K gas depending on complexity.
+                On Monad with parallel execution, these would be even more efficient!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
