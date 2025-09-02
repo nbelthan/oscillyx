@@ -279,16 +279,15 @@ contract Oscillyx is ERC721A, ERC2981, Ownable, Pausable, EIP712 {
         bytes32 styleRoot = keccak256(abi.encode(blockDigest[tokenMeta.blockNo], tokenMeta.indexInBlock));
         uint8 stylePackId = uint8(uint256(styleRoot) % 3);
         
-        // Step 3: Generate main Oscillyx Lissajous curve
-        string memory mainPath = _generateOscillyxArt(tokenMeta);
+        // Step 3: Generate rarity-based visual complexity
+        string memory artPath = _generateRarityBasedArt(tokenMeta, rarityTier);
         
-        // Step 4: Assemble clean single-path Oscillyx SVG
+        // Step 4: Assemble SVG with blockchain physics complexity
         return string(abi.encodePacked(
             '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">',
             _generateOscillyxDefs(stylePackId, rarityTier),
             _generateOscillyxBackground(stylePackId),
-            '<path d="', mainPath, '" class="main" stroke="url(#g0)" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.9" filter="url(#outerGlow)"/>',
-            '<path d="', mainPath, '" class="inner" stroke="url(#g0)" stroke-width="4" stroke-linecap="round" fill="none" opacity="1" filter="url(#glow)"/>',
+            artPath,
             '</svg>'
         ));
     }
@@ -847,6 +846,107 @@ contract Oscillyx is ERC721A, ERC2981, Ownable, Pausable, EIP712 {
         }
         
         return ghosts;
+    }
+    
+    /**
+     * @dev Generate blockchain physics rarity-based visual complexity
+     * Different rarity tiers produce different visual complexity levels
+     */
+    function _generateRarityBasedArt(Meta memory tokenMeta, uint8 rarityTier) internal view returns (string memory) {
+        // Base Oscillyx curve (always present)
+        string memory basePath = _generateOscillyxArt(tokenMeta);
+        bytes32 artSeed = keccak256(abi.encode(tokenMeta.seed, tokenMeta.indexInBlock));
+        
+        // Stroke configuration based on rarity tier
+        string memory strokeWidth = _toString(rarityTier >= 4 ? 6 : (rarityTier >= 2 ? 4 : 3));
+        string memory innerWidth = _toString(rarityTier >= 4 ? 3 : (rarityTier >= 2 ? 2 : 1));
+        string memory filter = rarityTier >= 3 ? ' filter="url(#outerGlow)"' : '';
+        string memory innerFilter = rarityTier >= 1 ? ' filter="url(#glow)"' : '';
+        
+        // Base path - main Oscillyx curve
+        string memory mainPath = string(abi.encodePacked(
+            '<path d="', basePath, '" class="main" stroke="url(#g0)" stroke-width="', strokeWidth, 
+            '" stroke-linecap="round" fill="none" opacity="0.9"', filter, '/>'
+        ));
+        
+        string memory innerPath = string(abi.encodePacked(
+            '<path d="', basePath, '" class="inner" stroke="url(#g0)" stroke-width="', innerWidth,
+            '" stroke-linecap="round" fill="none" opacity="1"', innerFilter, '/>'
+        ));
+        
+        // Network Pulse (0) - Single curve only
+        if (rarityTier == 0) {
+            return string(abi.encodePacked(mainPath, innerPath));
+        }
+        
+        // Block Echo (1) - Add secondary harmonic
+        if (rarityTier == 1) {
+            string memory secondaryPath = _generateSecondaryHarmonic(artSeed);
+            return string(abi.encodePacked(
+                mainPath, innerPath,
+                '<path d="', secondaryPath, '" stroke="url(#g0)" stroke-width="2" stroke-opacity="0.6" fill="none"/>'
+            ));
+        }
+        
+        // Digital Moment (2) - Add ghost strands
+        if (rarityTier == 2) {
+            string memory ghostsT2 = _generateGhostStrands(artSeed, rarityTier);
+            return string(abi.encodePacked(mainPath, innerPath, ghostsT2));
+        }
+        
+        // Chain Resonance (3) - Complex interference patterns
+        if (rarityTier == 3) {
+            string memory interferencePattern = _generateInterferencePattern(artSeed);
+            string memory ghostsT3 = _generateGhostStrands(artSeed, rarityTier);
+            return string(abi.encodePacked(mainPath, innerPath, ghostsT3, interferencePattern));
+        }
+        
+        // Network Apex (4) & Genesis Hash (5) - Maximum complexity
+        string memory complexPattern = _generateComplexPattern(artSeed, rarityTier);
+        string memory ghostsT45 = _generateGhostStrands(artSeed, rarityTier);
+        return string(abi.encodePacked(mainPath, innerPath, ghostsT45, complexPattern));
+    }
+    
+    /**
+     * @dev Generate secondary harmonic for Block Echo rarity
+     */
+    function _generateSecondaryHarmonic(bytes32 seed) internal pure returns (string memory) {
+        uint256 offset = (uint256(seed) % 100) + 50;
+        return string(abi.encodePacked(
+            "M128 ", _toString(256 - offset), " Q256 ", _toString(256 + offset), 
+            " 384 ", _toString(256 - offset)
+        ));
+    }
+    
+    /**
+     * @dev Generate interference pattern for Chain Resonance rarity
+     */
+    function _generateInterferencePattern(bytes32 seed) internal pure returns (string memory) {
+        uint256 freq = ((uint256(seed) >> 8) % 3) + 2;
+        return string(abi.encodePacked(
+            '<path d="M64 256 Q', _toString(128 + freq * 20), ' ', _toString(200 + freq * 10),
+            ' 256 256 Q', _toString(384 - freq * 20), ' ', _toString(312 - freq * 10), 
+            ' 448 256" stroke="url(#g0)" stroke-width="1" stroke-opacity="0.4" fill="none"/>'
+        ));
+    }
+    
+    /**
+     * @dev Generate complex patterns for highest rarity tiers
+     */
+    function _generateComplexPattern(bytes32 seed, uint8 rarityTier) internal pure returns (string memory) {
+        if (rarityTier == 5) { // Genesis Hash - Ultimate complexity
+            return string(abi.encodePacked(
+                '<path d="M256 64 Q400 200 256 256 Q112 312 256 448" stroke="url(#g0)" stroke-width="1" stroke-opacity="0.3" fill="none"/>',
+                '<path d="M64 256 Q200 112 256 256 Q312 400 448 256" stroke="url(#g0)" stroke-width="1" stroke-opacity="0.3" fill="none"/>',
+                '<circle cx="256" cy="256" r="', _toString(50 + (uint256(seed) % 30)), 
+                '" fill="none" stroke="url(#g0)" stroke-width="1" stroke-opacity="0.2"/>'
+            ));
+        }
+        
+        // Network Apex - High complexity
+        return string(abi.encodePacked(
+            '<path d="M150 150 Q256 256 362 362 M362 150 Q256 256 150 362" stroke="url(#g0)" stroke-width="1" stroke-opacity="0.3" fill="none"/>'
+        ));
     }
     
     /**
