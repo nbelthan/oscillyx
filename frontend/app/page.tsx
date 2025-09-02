@@ -37,7 +37,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-cyan-400 flex items-center justify-center font-mono text-black font-bold text-xl">
-                BW
+                OSC
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-cyan-400 font-mono tracking-wider">OSCILLYX</h1>
