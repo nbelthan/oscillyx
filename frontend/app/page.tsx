@@ -199,9 +199,9 @@ export default function HomePage() {
               className="border-2 border-purple-500 bg-black p-8 text-center"
             >
               <Crown className="w-12 h-12 text-purple-500 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-4 font-mono">TWO-LAYER RARITY</h3>
+              <h3 className="text-xl font-bold text-white mb-4 font-mono">🚀 BLOCKCHAIN PHYSICS RARITY</h3>
               <p className="text-gray-300 font-mono text-sm leading-relaxed">
-                Color palette rarity (Common to Legendary) × Cohort density (Solo to Surge). Special effects for rare rolls: shimmer, glow, animation.
+                <span className="text-cyan-400 font-bold">WORLD'S FIRST</span> NFT using actual blockchain characteristics: hash entropy × temporal significance × position uniqueness. Pure mathematical rarity.
               </p>
             </motion.div>
 
@@ -228,7 +228,7 @@ export default function HomePage() {
             JOIN THE COLOR REVOLUTION
           </h2>
           <p className="text-xl text-gray-300 mb-8 font-mono leading-relaxed">
-            Get notified when legendary palettes are minted and rare cohort events occur
+            Get notified when Genesis Hash and Network Apex rarities are discovered through blockchain physics
           </p>
           <motion.a
             whileHover={{ scale: 1.02 }}

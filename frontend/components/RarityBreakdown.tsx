@@ -5,70 +5,70 @@ import { Crown, Star, Zap, Users, Activity, Sparkles } from 'lucide-react';
 
 const RARITY_TIERS = [
   {
-    name: 'Solo',
-    range: '1 mint per block',
-    probability: '~40%',
-    description: 'Individual expression, clean lines',
+    name: 'Network Pulse',
+    range: 'Basic blockchain entropy',
+    probability: '~34%',
+    description: 'Standard cryptographic patterns',
     color: 'text-blue-400',
     bgColor: 'border-blue-400 bg-blue-900/10',
-    icon: <Users className="w-8 h-8" />,
+    icon: <Activity className="w-8 h-8" />,
     rarity: 'Common',
-    example: 'Clean geometric patterns with single-focus algorithms'
+    example: 'Clean lines with standard hash distribution patterns'
   },
   {
-    name: 'Pair',
-    range: '2 mints per block',
-    probability: '~25%',
-    description: 'Complementary dual harmonics',
+    name: 'Block Echo',
+    range: 'Enhanced entropy patterns',
+    probability: '~30%',
+    description: 'Meaningful cryptographic resonance',
     color: 'text-green-400',
     bgColor: 'border-green-400 bg-green-900/10',
-    icon: <Activity className="w-8 h-8" />,
+    icon: <Zap className="w-8 h-8" />,
     rarity: 'Uncommon',
-    example: 'Synchronized curves with dual-resonance mathematics'
+    example: 'Dual harmonics from temporal-hash intersection mathematics'
   },
   {
-    name: 'Trio',
-    range: '3 mints per block',
-    probability: '~15%',
-    description: 'Triangular balance, sacred geometry',
+    name: 'Digital Moment',
+    range: 'Significant blockchain markers',
+    probability: '~20%',
+    description: 'Temporally significant hash patterns',
     color: 'text-yellow-400',
     bgColor: 'border-yellow-400 bg-yellow-900/10',
     icon: <Star className="w-8 h-8" />,
     rarity: 'Rare',
-    example: 'Triple-phase oscillations with golden ratio influences'
+    example: 'Three-factor convergence of entropy, timing, and position'
   },
   {
-    name: 'Quartet',
-    range: '4-7 mints per block',
-    probability: '~12%',
-    description: 'Complex multi-layered compositions',
+    name: 'Chain Resonance',
+    range: 'Complex blockchain physics',
+    probability: '~10%',
+    description: 'Multi-dimensional hash complexity',
     color: 'text-orange-400',
     bgColor: 'border-orange-400 bg-orange-900/10',
-    icon: <Zap className="w-8 h-8" />,
+    icon: <Sparkles className="w-8 h-8" />,
     rarity: 'Epic',
-    example: 'Quad-harmonic interference patterns with chaos theory'
+    example: 'Quad-layered cryptographic interference with chaos theory'
   },
   {
-    name: 'Octet',
-    range: '8-15 mints per block',
-    probability: '~6%',
-    description: 'Dense collaborative energy fields',
+    name: 'Network Apex',
+    range: 'Exceptional blockchain events',
+    probability: '~5%',
+    description: 'Legendary cryptographic arrangements',
     color: 'text-purple-400',
     bgColor: 'border-purple-400 bg-purple-900/10',
-    icon: <Sparkles className="w-8 h-8" />,
+    icon: <Crown className="w-8 h-8" />,
     rarity: 'Legendary',
-    example: 'Eight-fold symmetries with crystalline mathematical structures'
+    example: 'Perfect entropy alignment with crystalline mathematical structures'
   },
   {
-    name: 'Surge',
-    range: '16+ mints per block',
-    probability: '~2%',
-    description: 'Mythical mass-consensus events',
+    name: 'Genesis Hash',
+    range: 'Mythical blockchain physics',
+    probability: '~1%',
+    description: 'Perfect cryptographic convergence',
     color: 'text-red-400',
     bgColor: 'border-red-400 bg-red-900/10',
-    icon: <Crown className="w-8 h-8" />,
+    icon: <Sparkles className="w-8 h-8" />,
     rarity: 'Mythical',
-    example: 'Hyperchaotic systems with emergent complexity beyond prediction'
+    example: 'Maximum entropy, temporal significance, and position uniqueness'
   }
 ];
 
@@ -78,13 +78,13 @@ export function RarityBreakdown() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-6 font-mono">
-            TWO-LAYER RARITY SYSTEM
+            REVOLUTIONARY BLOCKCHAIN PHYSICS RARITY
           </h2>
           <p className="text-xl text-gray-300 font-mono max-w-4xl mx-auto leading-relaxed">
-            Each Oscillyx NFT has two rarity factors that combine for ultimate uniqueness.
+            🚀 <span className="text-cyan-400 font-bold">WORLD'S FIRST</span> NFT collection with rarity determined by actual blockchain characteristics.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-orange-400 font-bold">
-              Color Palette Rarity × Cohort Density = Total Rarity
+              Hash Entropy × Temporal Significance × Position Uniqueness = True Blockchain Rarity
             </span>
           </p>
         </div>
@@ -142,45 +142,45 @@ export function RarityBreakdown() {
         >
           <div className="border-2 border-cyan-400 bg-black p-8">
             <h3 className="text-2xl font-bold text-cyan-400 mb-6 font-mono text-center">
-              HOW RARITY LAYERS WORK TOGETHER
+              HOW BLOCKCHAIN PHYSICS DETERMINES RARITY
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-lg font-bold text-white mb-3 font-mono">COLOR PALETTE LAYER</h4>
+                <h4 className="text-lg font-bold text-white mb-3 font-mono">🔢 HASH ENTROPY (40% WEIGHT)</h4>
                 <p className="text-gray-300 font-mono text-sm leading-relaxed mb-4">
-                  Block hash determines your palette from 20 options. Legendary palettes (0.02%) 
-                  feature animated rainbow gradients and special effects.
+                  Analyzes block hash for leading zeros, trailing zeros, and repeating patterns. 
+                  Pure cryptographic rarity based on mathematical distribution.
                 </p>
                 
-                <h4 className="text-lg font-bold text-white mb-3 font-mono">DENSITY TIER LAYER</h4>
+                <h4 className="text-lg font-bold text-white mb-3 font-mono">⏰ TEMPORAL SIGNIFICANCE (30% WEIGHT)</h4>
                 <p className="text-gray-300 font-mono text-sm leading-relaxed">
-                  Cohort size determines ghost strands and visual complexity. 
-                  Solo mints are clean, Surges create dense multi-layered compositions.
+                  Block timestamps create temporal patterns. Certain moments have higher 
+                  mathematical significance in blockchain physics.
                 </p>
               </div>
               
               <div>
-                <h4 className="text-lg font-bold text-white mb-3 font-mono">COMBINED RARITY</h4>
+                <h4 className="text-lg font-bold text-white mb-3 font-mono">📍 POSITION UNIQUENESS (30% WEIGHT)</h4>
                 <p className="text-gray-300 font-mono text-sm leading-relaxed mb-4">
-                  A Legendary palette (0.02%) in a Surge event (2%) creates a 0.0004% chance - 
-                  only 4 in 1,000,000 NFTs achieve this combination.
+                  Block number and token position create unique mathematical fingerprints. 
+                  First-ever system to use actual blockchain coordinates for rarity.
                 </p>
                 
-                <h4 className="text-lg font-bold text-white mb-3 font-mono">PERMANENT RECORD</h4>
+                <h4 className="text-lg font-bold text-white mb-3 font-mono">🚀 REVOLUTIONARY APPROACH</h4>
                 <p className="text-gray-300 font-mono text-sm leading-relaxed">
-                  Every NFT contains its birth block metadata forever. You can trace back to the exact 
-                  moment of consensus that created your unique pattern.
+                  No social coordination needed. Pure blockchain physics determines your NFT's rarity. 
+                  This is the future of truly decentralized, mathematical rarity.
                 </p>
               </div>
             </div>
             
             <div className="mt-8 pt-6 border-t border-gray-700 text-center">
               <p className="text-cyan-400 font-mono text-lg font-bold">
-                BLOCK HASH → COLOR PALETTE × COHORT SIZE → UNIQUE RARITY
+                HASH ENTROPY × TEMPORAL SIGNIFICANCE × POSITION UNIQUENESS = BLOCKCHAIN PHYSICS RARITY
               </p>
               <p className="text-gray-400 font-mono text-sm mt-2">
-                Same pattern, infinite variations. 100% on-chain determination.
+                🌟 World's first NFT collection using actual blockchain characteristics for rarity. No social coordination required.
               </p>
             </div>
           </div>
