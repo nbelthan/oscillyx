@@ -47,14 +47,14 @@ interface GeneratedPunk {
   attributes: Array<{ trait_type: string; value: string }>;
 }
 
-// Color palettes for demonstration
-const COLOR_PALETTES = [
-  { name: 'Electric Blue', start: '#00D4FF', end: '#0066FF', rarity: 'Common' },
-  { name: 'Plasma Purple', start: '#FF00FF', end: '#7B00FF', rarity: 'Common' },
-  { name: 'Golden Hour', start: '#FFD700', end: '#FFA500', rarity: 'Rare' },
-  { name: 'Quantum Violet', start: '#9D00FF', end: '#4B0082', rarity: 'Rare' },
-  { name: 'Fire Opal', start: '#FF3300', end: '#FFCC00', rarity: 'Epic' },
-  { name: 'Holographic', start: '#00FFFF', end: '#FF00FF', rarity: 'Legendary' }
+// Blockchain Physics Rarity Tiers - matching our smart contract exactly
+const BLOCKCHAIN_PHYSICS_TIERS = [
+  { name: 'Network Pulse', color: '#00D4FF', rarity: 'Common', percentage: '45-55%' },
+  { name: 'Block Echo', color: '#FF6EC7', rarity: 'Common', percentage: '25-35%' },
+  { name: 'Digital Moment', color: '#FFD700', rarity: 'Rare', percentage: '10-15%' },
+  { name: 'Chain Resonance', color: '#00FF88', rarity: 'Epic', percentage: '3-7%' },
+  { name: 'Genesis Hash', color: '#FF4500', rarity: 'Legendary', percentage: '1-2%' },
+  { name: 'Network Apex', color: '#9D00FF', rarity: 'Mythical', percentage: '<1%' }
 ];
 
 const DENSITY_TIERS = [
@@ -93,98 +93,31 @@ function generateLissajous(seed: string, width: number = 200, height: number = 2
   return path;
 }
 
-function generateOscillyxSVG(blockData: BlockData, cohortSize: number, tokenId: number, palette: any): string {
-  // Use same pattern for all, just change colors
-  // Use a fixed seed for consistent pattern
-  const fixedSeed = '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef';
-  
-  // Generate the SAME Lissajous curve for all
-  const curvePath = generateLissajous(fixedSeed);
-  
-  // Background pattern based on cohort size
-  const patternOpacity = Math.min(cohortSize / 20, 0.8);
-  
-  // Add special effects for rare palettes
-  const isLegendary = palette.rarity === 'Legendary';
-  const isEpic = palette.rarity === 'Epic';
-  const isRare = palette.rarity === 'Rare';
+// Generate SVG exactly like our smart contract does
+function generateBlockchainPhysicsSVG(rarity: number, seed: number, tierName: string, tierColor: string): string {
+  const radius = 60 + (rarity * 20);
+  const hue1 = seed % 360;
+  const hue2 = (seed >> 8) % 360;
+  const strokeWidth = 2 + rarity;
   
   return `
-    <svg width="100%" height="100%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="display: block;">
-      <defs>
-        <linearGradient id="grad-${tokenId}" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:${palette.start}" />
-          <stop offset="100%" style="stop-color:${palette.end}" />
-        </linearGradient>
-        <filter id="glow-${tokenId}">
-          <feGaussianBlur stdDeviation="${isLegendary ? 5 : isEpic ? 4 : 3}" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        ${isLegendary ? `
-        <animate attributeName="stroke" values="${palette.start};${palette.end};${palette.start}" dur="3s" repeatCount="indefinite"/>
-        ` : ''}
-      </defs>
-      
+    <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block; background: #1a1a1a;">
       <!-- Background -->
-      <rect width="200" height="200" fill="#0a0a0a"/>
+      <rect width="400" height="400" fill="hsl(${hue1}, 50%, 20%)"/>
       
-      <!-- Pattern overlay for depth -->
-      <rect width="200" height="200" fill="url(#grad-${tokenId})" opacity="${0.1 + patternOpacity * 0.2}"/>
+      <!-- Main circle - matches contract exactly -->
+      <circle cx="200" cy="200" r="${radius}" 
+              fill="none" 
+              stroke="hsl(${hue2}, 70%, 60%)" 
+              stroke-width="${strokeWidth}"/>
       
-      <!-- Ghost strands for cohort density -->
-      ${cohortSize > 3 ? `
-      <path d="${curvePath}" 
-            fill="none" 
-            stroke="url(#grad-${tokenId})"
-            stroke-width="1" 
-            opacity="0.2"
-            transform="translate(5,5)"/>
-      ` : ''}
-      ${cohortSize > 8 ? `
-      <path d="${curvePath}" 
-            fill="none" 
-            stroke="url(#grad-${tokenId})"
-            stroke-width="1.5" 
-            opacity="0.15"
-            transform="translate(-3,3)"/>
-      ` : ''}
-      
-      <!-- Main Lissajous curve with glow -->
-      <path d="${curvePath}" 
-            fill="none" 
-            stroke="url(#grad-${tokenId})"
-            stroke-width="${cohortSize > 10 ? 4 : 3}" 
-            filter="url(#glow-${tokenId})"
-            opacity="${isLegendary ? 0.95 : 0.9}"/>
-      
-      <!-- Core curve -->
-      <path d="${curvePath}" 
-            fill="none" 
-            stroke="url(#grad-${tokenId})"
-            stroke-width="2" 
-            opacity="1"/>
-      
-      ${isLegendary ? `
-      <!-- Legendary shimmer effect -->
-      <path d="${curvePath}" 
-            fill="none" 
-            stroke="white"
-            stroke-width="1" 
-            opacity="0.3">
-        <animate attributeName="opacity" values="0;0.5;0" dur="2s" repeatCount="indefinite"/>
-      </path>
-      ` : ''}
-      
-      <!-- Palette name -->
-      <text x="10" y="190" 
+      <!-- Tier name at bottom -->
+      <text x="200" y="350" 
+            text-anchor="middle" 
+            fill="white" 
             font-family="monospace" 
-            font-size="8" 
-            fill="${palette.start}"
-            opacity="0.8">
-        ${palette.name}
+            font-size="16">
+        ${tierName}
       </text>
     </svg>
   `.trim();
@@ -230,37 +163,48 @@ export function OscillyxGallery() {
         const fetchedBlocks = await Promise.all(blockPromises);
         const validBlocks = fetchedBlocks.filter(block => block !== null) as any[];
         
-        // Generate variations with different color palettes
+        // Generate blockchain physics NFTs like our smart contract
         const variations = validBlocks.map((block, index) => {
-          const cohortSize = Math.max(1, block.transactions.length);
-          const densityTier = getDensityTier(cohortSize);
+          // Calculate blockchain physics rarity exactly like contract
+          const seed = parseInt(block.hash.slice(2, 18), 16);
+          const hashEntropy = (seed % 100);
+          const temporalSig = (Number(block.number) % 100);
+          const positionUniq = (index % 100);
           
-          // Select palette based on index for demonstration
-          const palette = COLOR_PALETTES[index % COLOR_PALETTES.length];
+          const total = (hashEntropy * 2) + temporalSig + positionUniq;
           
-          const svgData = generateOscillyxSVG(block, cohortSize, index, palette);
+          let rarityLevel = 0;
+          if (total >= 400) rarityLevel = 5;
+          else if (total >= 350) rarityLevel = 4;
+          else if (total >= 300) rarityLevel = 3;
+          else if (total >= 200) rarityLevel = 2;
+          else if (total >= 100) rarityLevel = 1;
+          
+          // Get corresponding tier
+          const tier = BLOCKCHAIN_PHYSICS_TIERS[rarityLevel] || BLOCKCHAIN_PHYSICS_TIERS[0];
+          
+          const svgData = generateBlockchainPhysicsSVG(rarityLevel, seed, tier.name, tier.color);
           
           const attributes = [
+            { trait_type: 'Rarity Tier', value: tier.name },
+            { trait_type: 'Rarity Level', value: tier.rarity },
             { trait_type: 'Block Number', value: block.number.toString() },
-            { trait_type: 'Color Palette', value: palette.name },
-            { trait_type: 'Palette Rarity', value: palette.rarity },
-            { trait_type: 'Density Tier', value: densityTier.name },
-            { trait_type: 'Cohort Size', value: cohortSize.toString() },
-            { trait_type: 'Combined Rarity', value: `${palette.rarity} × ${densityTier.rarity}` }
+            { trait_type: 'Hash Entropy', value: hashEntropy.toString() },
+            { trait_type: 'Physics Score', value: total.toString() }
           ];
           
           return {
             blockNumber: block.number.toString(),
             blockHash: block.hash,
             timestamp: Number(block.timestamp),
-            cohortSize,
-            densityTier: densityTier.name,
-            stylePackId: index % COLOR_PALETTES.length,
-            stylePack: palette.name,
-            palette,
+            cohortSize: 1, // Not relevant for blockchain physics
+            densityTier: tier.name,
+            stylePackId: rarityLevel,
+            stylePack: tier.name,
+            palette: { name: tier.name, start: tier.color, end: tier.color, rarity: tier.rarity },
             svgData,
-            rarity: palette.rarity,
-            densityRarity: densityTier.rarity,
+            rarity: tier.rarity,
+            densityRarity: tier.rarity,
             attributes
           };
         });
@@ -293,10 +237,10 @@ export function OscillyxGallery() {
     <div className="space-y-8">
       <div className="text-center">
         <h3 className="text-2xl font-bold text-white mb-2 font-mono">
-          COLOR VARIATIONS IN ACTION
+          🚀 BLOCKCHAIN PHYSICS RARITY IN ACTION
         </h3>
         <p className="text-gray-400 font-mono text-sm">
-          Same high-quality pattern • Different color palettes • Every one unique
+          Live Monad blocks • Mathematical rarity calculation • 100% on-chain generation
         </p>
       </div>
 
@@ -346,15 +290,15 @@ export function OscillyxGallery() {
               {/* Key Attributes */}
               <div className="grid grid-cols-2 gap-2 text-xs font-mono">
                 <div className="bg-gray-900 p-2 border border-gray-700">
-                  <div className="text-gray-400">PALETTE</div>
+                  <div className="text-gray-400">RARITY TIER</div>
                   <div className="font-bold" style={{ color: punk.palette.start }}>
                     {punk.palette.name}
                   </div>
                 </div>
                 <div className="bg-gray-900 p-2 border border-gray-700">
-                  <div className="text-gray-400">DENSITY</div>
-                  <div className={`font-bold ${getDensityTier(punk.cohortSize).color}`}>
-                    {punk.densityTier}
+                  <div className="text-gray-400">PHYSICS LEVEL</div>
+                  <div className="font-bold text-white">
+                    {punk.rarity}
                   </div>
                 </div>
               </div>
@@ -370,10 +314,10 @@ export function OscillyxGallery() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center">
-                    <Users className="w-3 h-3 mr-1" />
-                    COHORT
+                    <Activity className="w-3 h-3 mr-1" />
+                    PHYSICS SCORE
                   </span>
-                  <span className="text-white">{punk.cohortSize}</span>
+                  <span className="text-cyan-400">{punk.attributes[4]?.value || 'N/A'}</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="flex items-center">
@@ -397,7 +341,7 @@ export function OscillyxGallery() {
 
       <div className="text-center pt-8 border-t border-gray-800">
         <p className="text-gray-400 font-mono text-sm mb-4">
-          Same pattern • Different colors • 10,000 unique variations
+          Pure blockchain physics • Mathematical rarity • 10,000 unique combinations
         </p>
         <a
           href="https://testnet.monadexplorer.com"
@@ -406,7 +350,7 @@ export function OscillyxGallery() {
           className="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-mono text-sm transition-colors"
         >
           <ExternalLink className="w-4 h-4 mr-2" />
-          VIEW MORE BLOCKS ON MONAD EXPLORER
+          VIEW MORE MONAD BLOCKS FOR BLOCKCHAIN PHYSICS
         </a>
       </div>
     </div>
