@@ -90,9 +90,9 @@ export function ColorPaletteShowcase() {
             🚀 BLOCKCHAIN PHYSICS RARITY TIERS
           </h2>
           <p className="text-xl text-gray-300 font-mono max-w-4xl mx-auto leading-relaxed">
-            <span className="text-cyan-400 font-bold">WORLD'S FIRST</span> NFT collection with rarity determined by actual blockchain characteristics.
+            <span className="text-cyan-400 font-bold">ONLY POSSIBLE ON MONAD:</span> Revolutionary blockchain physics rarity system that would cost $50,000+ on Ethereum.
             <br />
-            <span className="text-orange-400">Hash Entropy × Temporal Significance × Position Uniqueness = Mathematical Rarity</span>
+            <span className="text-orange-400">Monad's 1-second blocks + parallel execution + ultra-low gas = Mathematical rarity for everyone</span>
           </p>
         </div>
 
@@ -111,18 +111,115 @@ export function ColorPaletteShowcase() {
                 'border-cyan-400 shadow-lg shadow-cyan-400/20'
               }`}
             >
-              {/* Visual Preview Circle */}
-              <div 
-                className="h-32 w-32 rounded-full mx-auto mb-4 relative overflow-hidden border-4"
-                style={{
-                  backgroundColor: tier.color,
-                  borderColor: tier.color,
-                  opacity: 0.8
-                }}
-              >
-                <div className="absolute inset-4 rounded-full border-2 border-white/50"></div>
-                {tier.rarity === 'Mythical' && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+              {/* Visual Preview - Different for each rarity */}
+              <div className="h-32 w-32 mx-auto mb-4 relative overflow-hidden flex items-center justify-center"
+                style={{ backgroundColor: '#1a1a1a' }}>
+                
+                {/* Network Pulse - Simple Circle */}
+                {tier.name === 'Network Pulse' && (
+                  <div 
+                    className="rounded-full border-2"
+                    style={{
+                      width: '60px', height: '60px',
+                      borderColor: tier.color,
+                      backgroundColor: 'transparent'
+                    }}
+                  />
+                )}
+                
+                {/* Block Echo - Larger Circle with inner ring */}
+                {tier.name === 'Block Echo' && (
+                  <div className="relative">
+                    <div 
+                      className="rounded-full border-3"
+                      style={{
+                        width: '80px', height: '80px',
+                        borderColor: tier.color,
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                    <div 
+                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full border-2"
+                      style={{
+                        width: '50px', height: '50px',
+                        borderColor: tier.color,
+                        opacity: 0.6
+                      }}
+                    />
+                  </div>
+                )}
+                
+                {/* Digital Moment - Diamond shape */}
+                {tier.name === 'Digital Moment' && (
+                  <div 
+                    className="transform rotate-45 border-4"
+                    style={{
+                      width: '70px', height: '70px',
+                      borderColor: tier.color,
+                      backgroundColor: 'transparent'
+                    }}
+                  />
+                )}
+                
+                {/* Chain Resonance - Circle with crosshairs */}
+                {tier.name === 'Chain Resonance' && (
+                  <div className="relative">
+                    <div 
+                      className="rounded-full border-4"
+                      style={{
+                        width: '120px', height: '120px',
+                        borderColor: tier.color,
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                    {/* Crosshairs */}
+                    <div className="absolute top-1/2 left-0 right-0 h-0.5" style={{ backgroundColor: tier.color }}/>
+                    <div className="absolute top-0 bottom-0 left-1/2 w-0.5" style={{ backgroundColor: tier.color }}/>
+                  </div>
+                )}
+                
+                {/* Genesis Hash - Spiral approximation */}
+                {tier.name === 'Genesis Hash' && (
+                  <div className="relative">
+                    <div 
+                      className="rounded-full border-4"
+                      style={{
+                        width: '140px', height: '140px',
+                        borderColor: tier.color,
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                    <div 
+                      className="absolute top-2 left-2 rounded-full border-3"
+                      style={{
+                        width: '100px', height: '100px',
+                        borderColor: '#FFD700',
+                        backgroundColor: 'transparent'
+                      }}
+                    />
+                  </div>
+                )}
+                
+                {/* Network Apex - Hexagon with glow */}
+                {tier.name === 'Network Apex' && (
+                  <div className="relative">
+                    <svg width="160" height="160" viewBox="0 0 160 160">
+                      <polygon 
+                        points="80,20 138,50 138,110 80,140 22,110 22,50"
+                        fill="none"
+                        stroke={tier.color}
+                        strokeWidth="4"
+                      />
+                      <polygon 
+                        points="80,40 118,60 118,100 80,120 42,100 42,60"
+                        fill={tier.color}
+                        opacity="0.2"
+                      />
+                    </svg>
+                    {tier.rarity === 'Mythical' && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-300/30 to-transparent animate-pulse rounded-full" />
+                    )}
+                  </div>
                 )}
               </div>
               
@@ -161,7 +258,7 @@ export function ColorPaletteShowcase() {
         {/* Blockchain Physics Explanation */}
         <div className="border-2 border-cyan-400 bg-black p-8">
           <h3 className="text-2xl font-bold text-cyan-400 mb-6 font-mono text-center">
-            REVOLUTIONARY BLOCKCHAIN PHYSICS RARITY
+            WHY ONLY MONAD CAN DO THIS
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -169,7 +266,7 @@ export function ColorPaletteShowcase() {
               <div className="text-xl font-bold text-cyan-400 mb-2 font-mono">HASH ENTROPY</div>
               <div className="text-sm text-gray-300 font-mono mb-2">40% Weight</div>
               <p className="text-xs text-gray-400 font-mono leading-relaxed">
-                Cryptographic randomness from the blockchain seed determines base visual complexity
+                <span className="text-cyan-300">Monad's parallel execution</span> processes complex cryptographic calculations in real-time without timeouts
               </p>
             </div>
             
@@ -177,7 +274,7 @@ export function ColorPaletteShowcase() {
               <div className="text-xl font-bold text-orange-400 mb-2 font-mono">TEMPORAL SIGNIFICANCE</div>
               <div className="text-sm text-gray-300 font-mono mb-2">30% Weight</div>
               <p className="text-xs text-gray-400 font-mono leading-relaxed">
-                Block timing patterns create temporal rarity based on network activity
+                <span className="text-orange-300">1-second block times</span> provide maximum temporal granularity impossible on slower chains
               </p>
             </div>
             
@@ -185,18 +282,36 @@ export function ColorPaletteShowcase() {
               <div className="text-xl font-bold text-green-400 mb-2 font-mono">POSITION UNIQUENESS</div>
               <div className="text-sm text-gray-300 font-mono mb-2">30% Weight</div>
               <p className="text-xs text-gray-400 font-mono leading-relaxed">
-                Mint position within block creates positional rarity for early minters
+                <span className="text-green-300">Ultra-low gas costs</span> make positional minting affordable for everyone, not just whales
               </p>
             </div>
           </div>
           
-          <div className="pt-6 border-t border-gray-700 text-center">
-            <p className="text-cyan-400 font-mono text-lg font-bold mb-2">
-              🧮 MATHEMATICAL RARITY = (Hash Entropy × 40%) + (Temporal × 30%) + (Position × 30%)
-            </p>
-            <p className="text-gray-400 font-mono text-sm">
-              100% cryptographically verifiable • No human coordination required • Pure blockchain physics
-            </p>
+          <div className="pt-6 border-t border-gray-700">
+            <div className="bg-purple-900/30 border border-purple-400 p-6 rounded mb-4">
+              <h4 className="text-lg font-bold text-purple-200 mb-3 font-mono">COST COMPARISON:</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono">
+                <div className="text-red-300">
+                  ❌ <span className="font-bold">Ethereum:</span> $50,000+ deployment cost<br/>
+                  ❌ 12-second blocks limit temporal precision<br/>
+                  ❌ Sequential processing causes timeouts
+                </div>
+                <div className="text-green-300">
+                  ✅ <span className="font-bold">Monad:</span> $5 deployment cost<br/>
+                  ✅ 1-second blocks = perfect granularity<br/>
+                  ✅ 10,000 TPS handles complex calculations
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-cyan-400 font-mono text-lg font-bold mb-2">
+                🚀 MONAD = First blockchain that makes mathematical rarity economically viable
+              </p>
+              <p className="text-gray-400 font-mono text-sm">
+                Revolutionary blockchain physics NFTs: Only possible with Monad's speed, scale, and affordability
+              </p>
+            </div>
           </div>
         </div>
       </div>

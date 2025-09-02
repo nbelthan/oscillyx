@@ -89,13 +89,18 @@ export default function HomePage() {
 
               <div className="space-y-4 mb-8">
                 <p className="text-xl text-gray-300 font-mono leading-relaxed">
-                  <span className="text-cyan-400 font-bold">WORLD'S FIRST</span> NFT collection with rarity determined by actual blockchain characteristics: <span className="text-orange-400 font-bold">hash entropy, temporal significance, position uniqueness</span>.
+                  <span className="text-cyan-400 font-bold">ONLY POSSIBLE ON MONAD:</span> Revolutionary blockchain physics NFT system that would cost <span className="text-red-400 font-bold">$50,000+</span> to deploy on Ethereum.
                 </p>
                 <p className="text-lg text-gray-400 font-mono">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 font-bold">
-                    6 rarity tiers from Network Pulse to Network Apex
-                  </span> • 100% on-chain SVG generation • Mathematical art that scales with rarity
+                    1-second blocks × Parallel execution × Ultra-low gas
+                  </span> • Perfect temporal granularity for mathematical rarity • Affordable for everyone
                 </p>
+                <div className="bg-purple-900/20 border border-purple-400 p-4 rounded">
+                  <p className="text-purple-300 font-mono text-sm">
+                    🚀 <span className="text-purple-200 font-bold">Monad Advantage:</span> 10,000 TPS enables real-time blockchain physics calculations that would timeout on other networks
+                  </p>
+                </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
