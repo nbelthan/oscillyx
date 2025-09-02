@@ -111,116 +111,28 @@ export function ColorPaletteShowcase() {
                 'border-cyan-400 shadow-lg shadow-cyan-400/20'
               }`}
             >
-              {/* Visual Preview - Different for each rarity */}
-              <div className="h-32 w-32 mx-auto mb-4 relative overflow-hidden flex items-center justify-center"
-                style={{ backgroundColor: '#1a1a1a' }}>
-                
-                {/* Network Pulse - Simple Circle */}
-                {tier.name === 'Network Pulse' && (
-                  <div 
-                    className="rounded-full border-2"
-                    style={{
-                      width: '60px', height: '60px',
-                      borderColor: tier.color,
-                      backgroundColor: 'transparent'
-                    }}
-                  />
-                )}
-                
-                {/* Block Echo - Larger Circle with inner ring */}
-                {tier.name === 'Block Echo' && (
-                  <div className="relative">
-                    <div 
-                      className="rounded-full border-3"
-                      style={{
-                        width: '80px', height: '80px',
-                        borderColor: tier.color,
-                        backgroundColor: 'transparent'
-                      }}
-                    />
-                    <div 
-                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full border-2"
-                      style={{
-                        width: '50px', height: '50px',
-                        borderColor: tier.color,
-                        opacity: 0.6
-                      }}
-                    />
-                  </div>
-                )}
-                
-                {/* Digital Moment - Diamond shape */}
-                {tier.name === 'Digital Moment' && (
-                  <div 
-                    className="transform rotate-45 border-4"
-                    style={{
-                      width: '70px', height: '70px',
-                      borderColor: tier.color,
-                      backgroundColor: 'transparent'
-                    }}
-                  />
-                )}
-                
-                {/* Chain Resonance - Circle with crosshairs */}
-                {tier.name === 'Chain Resonance' && (
-                  <div className="relative">
-                    <div 
-                      className="rounded-full border-4"
-                      style={{
-                        width: '120px', height: '120px',
-                        borderColor: tier.color,
-                        backgroundColor: 'transparent'
-                      }}
-                    />
-                    {/* Crosshairs */}
-                    <div className="absolute top-1/2 left-0 right-0 h-0.5" style={{ backgroundColor: tier.color }}/>
-                    <div className="absolute top-0 bottom-0 left-1/2 w-0.5" style={{ backgroundColor: tier.color }}/>
-                  </div>
-                )}
-                
-                {/* Genesis Hash - Spiral approximation */}
-                {tier.name === 'Genesis Hash' && (
-                  <div className="relative">
-                    <div 
-                      className="rounded-full border-4"
-                      style={{
-                        width: '140px', height: '140px',
-                        borderColor: tier.color,
-                        backgroundColor: 'transparent'
-                      }}
-                    />
-                    <div 
-                      className="absolute top-2 left-2 rounded-full border-3"
-                      style={{
-                        width: '100px', height: '100px',
-                        borderColor: '#FFD700',
-                        backgroundColor: 'transparent'
-                      }}
-                    />
-                  </div>
-                )}
-                
-                {/* Network Apex - Hexagon with glow */}
-                {tier.name === 'Network Apex' && (
-                  <div className="relative">
-                    <svg width="160" height="160" viewBox="0 0 160 160">
-                      <polygon 
-                        points="80,20 138,50 138,110 80,140 22,110 22,50"
-                        fill="none"
-                        stroke={tier.color}
-                        strokeWidth="4"
-                      />
-                      <polygon 
-                        points="80,40 118,60 118,100 80,120 42,100 42,60"
-                        fill={tier.color}
-                        opacity="0.2"
-                      />
-                    </svg>
-                    {tier.rarity === 'Mythical' && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-300/30 to-transparent animate-pulse rounded-full" />
-                    )}
-                  </div>
-                )}
+              {/* Actual Contract SVG Preview */}
+              <div className="h-32 w-32 mx-auto mb-4 relative overflow-hidden flex items-center justify-center">
+                <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style={{ background: '#1a1a1a' }}>
+                  {/* Background - varies by tier */}
+                  <rect width="400" height="400" fill={`hsl(${index * 60}, 50%, 20%)`}/>
+                  
+                  {/* Circle that scales with rarity index (0-5) - exactly like contract */}
+                  <circle cx="200" cy="200" 
+                          r={60 + (index * 20)} 
+                          fill="none" 
+                          stroke={tier.color}
+                          strokeWidth={2 + index}/>
+                  
+                  {/* Tier name at bottom - exactly like contract */}
+                  <text x="200" y="350" 
+                        textAnchor="middle" 
+                        fill="white" 
+                        fontFamily="monospace" 
+                        fontSize="16">
+                    {tier.name}
+                  </text>
+                </svg>
               </div>
               
               {/* Tier Name */}
@@ -305,6 +217,24 @@ export function ColorPaletteShowcase() {
             </div>
             
             <div className="text-center">
+              <div className="bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-orange-500/10 border border-cyan-400 p-6 rounded mb-6">
+                <h4 className="text-2xl font-bold text-cyan-400 mb-4 font-mono">🌍 WORLD'S FIRST BLOCKCHAIN PHYSICS NFT</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm font-mono">
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-green-300 mb-1">MATHEMATICAL RARITY</div>
+                    <div className="text-gray-400">No social coordination needed - pure cryptographic truth determines rarity</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-purple-300 mb-1">BLOCKCHAIN NATIVE</div>
+                    <div className="text-gray-400">First NFT using actual blockchain characteristics for visual generation</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl font-bold text-orange-300 mb-1">ETERNALLY VERIFIABLE</div>
+                    <div className="text-gray-400">100% on-chain - no IPFS, no servers, exists forever on blockchain</div>
+                  </div>
+                </div>
+              </div>
+              
               <p className="text-cyan-400 font-mono text-lg font-bold mb-2">
                 🚀 MONAD = First blockchain that makes mathematical rarity economically viable
               </p>
