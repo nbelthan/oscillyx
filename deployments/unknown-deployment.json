@@ -1,18 +1,18 @@
 {
   "network": "unknown",
   "chainId": 10143,
-  "address": "0x9579e8fE548cE33ea92f317313896a1d2d20ea6F",
+  "address": "0x213D14d79DF0c6578570E63F54C67b4DFa11f9B2",
   "deployer": "0x36983B1b28BAFeCC05AC74Cd3E9B0F5E83a9FD09",
-  "txHash": "0x3ce3bdcbf3aad75d23574d756c13ea353133980d64b7c01c76e31b6630ff1a19",
-  "blockNumber": 33472628,
-  "gasUsed": "5190769",
-  "timestamp": "2025-08-27T22:09:16.693Z",
+  "txHash": "0x28d11cc76df8a242ec74baa7be4dede23c3d020fe50135a002a4ad8c33878504",
+  "blockNumber": 34716672,
+  "gasUsed": "6092194",
+  "timestamp": "2025-09-02T22:34:11.883Z",
   "config": {
     "maxSupply": 10000,
     "signer": "0x36983B1b28BAFeCC05AC74Cd3E9B0F5E83a9FD09",
     "royaltyReceiver": "0x36983B1b28BAFeCC05AC74Cd3E9B0F5E83a9FD09",
     "royaltyFeeNumerator": 500,
-    "contractURI": "https://blockweave.art/api/collection"
+    "contractURI": "https://oscillyx.art/api/collection"
   },
   "abi": [
     {

@@ -1,0 +1,10 @@
+{
+  "network": "unknown",
+  "chainId": 10143,
+  "contractAddress": "0x8a0C8c0dc9a34076eB2D9d40c84f6FcA44aC7925",
+  "deployer": "0x36983B1b28BAFeCC05AC74Cd3E9B0F5E83a9FD09",
+  "deploymentTime": "2025-09-02T22:46:04.329Z",
+  "maxSupply": 10000,
+  "signer": "0x36983B1b28BAFeCC05AC74Cd3E9B0F5E83a9FD09",
+  "contractName": "OscillyxOptimized"
+}

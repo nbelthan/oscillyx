@@ -317,7 +317,12 @@ contract Oscillyx is ERC721A, ERC2981, Ownable, Pausable, EIP712 {
      * Revolutionary: First NFT collection with rarity from blockchain physics!
      */
     function _getBlockBasedRarity(uint32 blockNo, uint256 tokenId) internal view returns (uint8) {
-        bytes32 blockHash = blockhash(blockNo);
+        // Use stored block digest instead of blockhash for reliability
+        bytes32 blockHash = blockDigest[blockNo];
+        if (blockHash == 0) {
+            // Fallback: use blockhash for very recent blocks
+            blockHash = blockhash(blockNo);
+        }
         uint256 timestamp = block.timestamp;
         
         // Factor 1: Cryptographic rarity (40% weight) - Hash entropy patterns

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useNetwork, useContractRead } from 'wagmi';
 import { motion } from 'framer-motion';
-import { Activity, Zap, Users, Twitter, ExternalLink, Crown, Sparkles, Gift, Palette } from 'lucide-react';
+import { Activity, Zap, Users, Twitter, ExternalLink, Crown, Sparkles, Gift } from 'lucide-react';
 
 import { MintFlow } from '@/components/MintFlow';
 import { OscillyxGallery } from '@/components/OscillyxGallery';
@@ -82,19 +82,19 @@ export default function HomePage() {
               <div className="flex items-center justify-center space-x-3 mb-6">
                 <div className="h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent w-24"></div>
                 <p className="text-2xl font-mono text-white tracking-wider">
-                  ONE STYLE • INFINITE COLORS
+                  BLOCKCHAIN PHYSICS • MATHEMATICAL RARITY
                 </p>
                 <div className="h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent w-24"></div>
               </div>
 
               <div className="space-y-4 mb-8">
                 <p className="text-xl text-gray-300 font-mono leading-relaxed">
-                  Each NFT features the same <span className="text-cyan-400 font-bold">high-quality generative art</span> with unique colors determined by block data.
+                  <span className="text-cyan-400 font-bold">WORLD'S FIRST</span> NFT collection with rarity determined by actual blockchain characteristics: <span className="text-orange-400 font-bold">hash entropy, temporal significance, position uniqueness</span>.
                 </p>
                 <p className="text-lg text-gray-400 font-mono">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 font-bold">
-                    20 distinct color palettes
-                  </span> from Electric Blue to Quantum Violet. Every token is visually unique.
+                    6 rarity tiers from Network Pulse to Network Apex
+                  </span> • 100% on-chain SVG generation • Mathematical art that scales with rarity
                 </p>
               </div>
 
@@ -166,15 +166,15 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-6 font-mono">
-              ONE MASTERPIECE
+              REVOLUTIONARY RARITY
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-orange-400">
-                10,000 COLOR EXPRESSIONS
+                BLOCKCHAIN PHYSICS POWERED
               </span>
             </h2>
             <p className="text-xl text-gray-300 font-mono max-w-4xl mx-auto">
-              Every Oscillyx uses the same high-quality Lissajous algorithm. What makes yours unique? 
-              The colors, determined entirely by block data.
+              Each Oscillyx NFT's rarity and visual complexity is determined by pure blockchain mathematics.
+              No social coordination required - just cryptographic truth.
             </p>
           </div>
 
@@ -185,10 +185,10 @@ export default function HomePage() {
               transition={{ delay: 0.1 }}
               className="border-2 border-cyan-400 bg-black p-8 text-center"
             >
-              <Palette className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-4 font-mono">20 COLOR PALETTES</h3>
+              <Activity className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-white mb-4 font-mono">HASH ENTROPY ANALYSIS</h3>
               <p className="text-gray-300 font-mono text-sm leading-relaxed">
-                Block hash determines your palette: Electric Blue, Quantum Violet, Golden Hour, and 17 more. Each with unique gradients and effects.
+                Cryptographic seed analysis determines base visual complexity. Higher entropy = more sophisticated mathematical patterns and richer color palettes.
               </p>
             </motion.div>
 
@@ -212,9 +212,9 @@ export default function HomePage() {
               className="border-2 border-green-400 bg-black p-8 text-center"
             >
               <Sparkles className="w-12 h-12 text-green-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-4 font-mono">FOREVER UNIQUE</h3>
+              <h3 className="text-xl font-bold text-white mb-4 font-mono">100% ON-CHAIN GENERATION</h3>
               <p className="text-gray-300 font-mono text-sm leading-relaxed">
-                100% on-chain SVG generation means your NFT will exist as long as Ethereum does. No servers, no IPFS, no dependencies.
+                SVG art generated entirely on-chain from blockchain physics. No servers, no IPFS, no dependencies. Pure mathematical art that exists forever.
               </p>
             </motion.div>
           </div>
@@ -225,10 +225,10 @@ export default function HomePage() {
       <section className="py-16 border-t-2 border-gray-800 bg-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-white mb-6 font-mono">
-            JOIN THE COLOR REVOLUTION
+            JOIN THE BLOCKCHAIN PHYSICS REVOLUTION
           </h2>
           <p className="text-xl text-gray-300 mb-8 font-mono leading-relaxed">
-            Get notified when Genesis Hash and Network Apex rarities are discovered through blockchain physics
+            Be part of the world's first NFT collection using actual blockchain characteristics for rarity. Genesis Hash and Network Apex rarities await discovery.
           </p>
           <motion.a
             whileHover={{ scale: 1.02 }}
