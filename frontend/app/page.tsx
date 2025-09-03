@@ -166,6 +166,74 @@ export default function HomePage() {
       {/* Rarity Breakdown */}
       <RarityBreakdown />
 
+      {/* Color Traits Explanation Section */}
+      <section className="py-16 border-t-2 border-gray-800 bg-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-6 font-mono">
+              COLORS AS BLOCKCHAIN TRAITS
+            </h2>
+            <p className="text-lg text-gray-300 font-mono max-w-4xl mx-auto mb-8">
+              Every NFT's colors are mathematically derived from its blockchain hash. 
+              No random generation - pure deterministic color traits from cryptographic data.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="border border-cyan-400 bg-cyan-900/10 p-6">
+              <h3 className="text-lg font-bold text-cyan-400 mb-3 font-mono">PRIMARY HUE</h3>
+              <p className="text-sm text-gray-300 font-mono mb-2">
+                Derived from first 8 bytes of block hash
+              </p>
+              <p className="text-xs text-gray-400 font-mono">
+                <span className="text-cyan-300">Formula:</span> hash % 360 = hue degree
+              </p>
+              <p className="text-xs text-gray-500 font-mono mt-2">
+                Creates background gradient and primary color theme
+              </p>
+            </div>
+            
+            <div className="border border-purple-400 bg-purple-900/10 p-6">
+              <h3 className="text-lg font-bold text-purple-400 mb-3 font-mono">SECONDARY HUE</h3>
+              <p className="text-sm text-gray-300 font-mono mb-2">
+                Derived from middle 8 bytes of hash
+              </p>
+              <p className="text-xs text-gray-400 font-mono">
+                <span className="text-purple-300">Formula:</span> (hash >> 8) % 360
+              </p>
+              <p className="text-xs text-gray-500 font-mono mt-2">
+                Defines pattern strokes and accent colors
+              </p>
+            </div>
+            
+            <div className="border border-orange-400 bg-orange-900/10 p-6">
+              <h3 className="text-lg font-bold text-orange-400 mb-3 font-mono">TERTIARY HUE</h3>
+              <p className="text-sm text-gray-300 font-mono mb-2">
+                Derived from last 8 bytes of hash
+              </p>
+              <p className="text-xs text-gray-400 font-mono">
+                <span className="text-orange-300">Formula:</span> (hash >> 16) % 360
+              </p>
+              <p className="text-xs text-gray-500 font-mono mt-2">
+                Adds depth with additional accent elements
+              </p>
+            </div>
+          </div>
+          
+          <div className="bg-gray-900/50 border border-gray-700 p-6 text-center">
+            <p className="text-cyan-400 font-mono font-bold mb-2">
+              DETERMINISTIC COLOR GENERATION
+            </p>
+            <p className="text-sm text-gray-300 font-mono">
+              Same block hash = Same colors every time. Colors are permanent NFT traits stored on-chain.
+            </p>
+            <p className="text-xs text-gray-400 font-mono mt-2">
+              Each NFT has 3 color traits: Primary Hue (0-360°), Secondary Hue (0-360°), Tertiary Hue (0-360°)
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Why Unique Section */}
       <section className="py-20 border-t-2 border-gray-800 bg-gray-900/20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
