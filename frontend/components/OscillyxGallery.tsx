@@ -329,8 +329,11 @@ export function OscillyxGallery() {
         <h3 className="text-2xl font-bold text-white mb-2 font-mono">
           BLOCKCHAIN PHYSICS RARITY IN ACTION
         </h3>
-        <p className="text-gray-400 font-mono text-sm">
+        <p className="text-gray-400 font-mono text-sm mb-2">
           Live Monad blocks • Mathematical rarity calculation • 100% on-chain generation
+        </p>
+        <p className="text-cyan-400 font-mono text-xs">
+          Click the <ExternalLink className="w-3 h-3 inline" /> icon on any NFT to view its source block on Monad Explorer
         </p>
       </div>
 
@@ -420,9 +423,19 @@ export function OscillyxGallery() {
                 </div>
               </div>
 
-              {/* Block Hash (truncated) */}
-              <div className="text-xs font-mono text-gray-500 truncate" title={punk.blockHash}>
-                {punk.blockHash.slice(0, 10)}...{punk.blockHash.slice(-8)}
+              {/* Block Hash and Explorer Link */}
+              <div className="space-y-2">
+                <div className="text-xs font-mono text-gray-500 truncate" title={punk.blockHash}>
+                  {punk.blockHash.slice(0, 10)}...{punk.blockHash.slice(-8)}
+                </div>
+                <a
+                  href={`https://testnet.monadexplorer.com/block/${punk.blockNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-1 px-2 bg-cyan-900/30 border border-cyan-400/50 hover:bg-cyan-900/50 hover:border-cyan-400 text-cyan-400 font-mono text-xs transition-all"
+                >
+                  VIEW BLOCK #{punk.blockNumber}
+                </a>
               </div>
             </div>
           </motion.div>
