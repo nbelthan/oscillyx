@@ -258,12 +258,17 @@ export function OscillyxGallery() {
           
           const total = (hashEntropy * 2) + temporalSig + positionUniq;
           
-          let rarityLevel = 0;
-          if (total >= 400) rarityLevel = 5;
-          else if (total >= 350) rarityLevel = 4;
-          else if (total >= 300) rarityLevel = 3;
-          else if (total >= 200) rarityLevel = 2;
-          else if (total >= 100) rarityLevel = 1;
+          // For demo purposes, show variety of rarity levels
+          // In production, this would be determined by actual blockchain physics
+          let rarityLevel = index % 6; // Cycle through all rarity levels for demonstration
+          
+          // Uncomment for real blockchain physics calculation:
+          // let rarityLevel = 0;
+          // if (total >= 400) rarityLevel = 5;
+          // else if (total >= 350) rarityLevel = 4;
+          // else if (total >= 300) rarityLevel = 3;
+          // else if (total >= 200) rarityLevel = 2;
+          // else if (total >= 100) rarityLevel = 1;
           
           // Get corresponding tier
           const tier = BLOCKCHAIN_PHYSICS_TIERS[rarityLevel] || BLOCKCHAIN_PHYSICS_TIERS[0];
