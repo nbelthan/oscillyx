@@ -81,7 +81,7 @@ export function RarityBreakdown() {
             REVOLUTIONARY BLOCKCHAIN PHYSICS RARITY
           </h2>
           <p className="text-xl text-gray-300 font-mono max-w-4xl mx-auto leading-relaxed">
-            🚀 <span className="text-cyan-400 font-bold">WORLD'S FIRST</span> NFT collection with rarity determined by actual blockchain characteristics.
+            <span className="text-cyan-400 font-bold">WORLD'S FIRST</span> NFT collection with rarity determined by actual blockchain characteristics.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-orange-400 font-bold">
               Hash Entropy × Temporal Significance × Position Uniqueness = True Blockchain Rarity
@@ -167,7 +167,7 @@ export function RarityBreakdown() {
                   First-ever system to use actual blockchain coordinates for rarity.
                 </p>
                 
-                <h4 className="text-lg font-bold text-white mb-3 font-mono">🚀 REVOLUTIONARY APPROACH</h4>
+                <h4 className="text-lg font-bold text-white mb-3 font-mono">REVOLUTIONARY APPROACH</h4>
                 <p className="text-gray-300 font-mono text-sm leading-relaxed">
                   No social coordination needed. Pure blockchain physics determines your NFT's rarity. 
                   This is the future of truly decentralized, mathematical rarity.

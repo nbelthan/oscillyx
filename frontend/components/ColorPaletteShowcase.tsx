@@ -87,7 +87,7 @@ export function ColorPaletteShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-6 font-mono">
-            🚀 BLOCKCHAIN PHYSICS RARITY TIERS
+            BLOCKCHAIN PHYSICS RARITY TIERS
           </h2>
           <p className="text-xl text-gray-300 font-mono max-w-4xl mx-auto leading-relaxed">
             <span className="text-cyan-400 font-bold">ONLY POSSIBLE ON MONAD:</span> Revolutionary blockchain physics rarity system that would cost $50,000+ on Ethereum.
@@ -113,100 +113,100 @@ export function ColorPaletteShowcase() {
             >
               {/* Complex Blockchain Physics Visual Preview */}
               <div className="h-32 w-32 mx-auto mb-4 relative overflow-hidden flex items-center justify-center">
-                {/* Network Pulse - Concentric rings */}
+                {/* Network Pulse - Multiple concentric rings with gradient */}
                 {index === 0 && (
-                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style={{ background: '#1a1a1a' }}>
+                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <radialGradient id="bg0" cx="50%" cy="50%">
-                        <stop offset="0%" stopColor="hsl(200, 40%, 15%)"/>
-                        <stop offset="100%" stopColor="hsl(200, 60%, 8%)"/>
+                        <stop offset="0%" stopColor="hsl(180, 40%, 15%)"/>
+                        <stop offset="100%" stopColor="hsl(180, 60%, 8%)"/>
                       </radialGradient>
                     </defs>
                     <rect width="400" height="400" fill="url(#bg0)"/>
-                    <circle cx="200" cy="200" r="80" fill="none" stroke="#00D4FF" strokeWidth="3" opacity="0.8"/>
-                    <circle cx="200" cy="200" r="60" fill="none" stroke="#00D4FF" strokeWidth="2" opacity="0.6"/>
-                    <circle cx="200" cy="200" r="40" fill="none" stroke="#00D4FF" strokeWidth="2" opacity="0.4"/>
+                    <circle cx="200" cy="200" r="80" fill="none" stroke="hsl(180, 70%, 60%)" strokeWidth="3" opacity="0.8"/>
+                    <circle cx="200" cy="200" r="60" fill="none" stroke="hsl(180, 80%, 70%)" strokeWidth="2" opacity="0.6"/>
+                    <circle cx="200" cy="200" r="40" fill="none" stroke="hsl(180, 90%, 80%)" strokeWidth="2" opacity="0.4"/>
                   </svg>
                 )}
 
-                {/* Block Echo - Intersecting waves */}
+                {/* Block Echo - Wave interference pattern */}
                 {index === 1 && (
-                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style={{ background: '#1a1a1a' }}>
+                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <radialGradient id="bg1" cx="50%" cy="50%">
-                        <stop offset="0%" stopColor="hsl(320, 50%, 18%)"/>
-                        <stop offset="100%" stopColor="hsl(320, 70%, 10%)"/>
+                        <stop offset="0%" stopColor="hsl(280, 50%, 18%)"/>
+                        <stop offset="100%" stopColor="hsl(280, 70%, 10%)"/>
                       </radialGradient>
                     </defs>
                     <rect width="400" height="400" fill="url(#bg1)"/>
-                    <circle cx="200" cy="200" r="100" fill="none" stroke="#FF6EC7" strokeWidth="4" opacity="0.7"/>
-                    <circle cx="170" cy="170" r="60" fill="none" stroke="#FF6EC7" strokeWidth="3" opacity="0.5"/>
-                    <circle cx="230" cy="230" r="60" fill="none" stroke="#FF8EC7" strokeWidth="3" opacity="0.5"/>
+                    <circle cx="200" cy="200" r="100" fill="none" stroke="hsl(280, 70%, 60%)" strokeWidth="4" opacity="0.7"/>
+                    <circle cx="170" cy="170" r="60" fill="none" stroke="hsl(290, 80%, 70%)" strokeWidth="3" opacity="0.5"/>
+                    <circle cx="230" cy="230" r="60" fill="none" stroke="hsl(270, 80%, 70%)" strokeWidth="3" opacity="0.5"/>
                   </svg>
                 )}
 
-                {/* Digital Moment - Crystal diamond */}
+                {/* Digital Moment - Crystal formations */}
                 {index === 2 && (
-                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style={{ background: '#1a1a1a' }}>
+                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <radialGradient id="bg2" cx="50%" cy="50%">
-                        <stop offset="0%" stopColor="hsl(45, 60%, 20%)"/>
-                        <stop offset="100%" stopColor="hsl(45, 80%, 12%)"/>
+                        <stop offset="0%" stopColor="hsl(50, 60%, 20%)"/>
+                        <stop offset="100%" stopColor="hsl(50, 80%, 12%)"/>
                       </radialGradient>
                     </defs>
                     <rect width="400" height="400" fill="url(#bg2)"/>
-                    <polygon points="200,120 280,200 200,280 120,200" fill="none" stroke="#FFD700" strokeWidth="4" opacity="0.8"/>
-                    <polygon points="200,140 260,200 200,260 140,200" fill="none" stroke="#FFED4A" strokeWidth="3" opacity="0.6"/>
-                    <circle cx="200" cy="200" r="30" fill="#FFD700" opacity="0.3"/>
+                    <polygon points="200,120 280,200 200,280 120,200" fill="none" stroke="hsl(50, 80%, 70%)" strokeWidth="4" opacity="0.8"/>
+                    <polygon points="200,140 260,200 200,260 140,200" fill="none" stroke="hsl(60, 90%, 80%)" strokeWidth="3" opacity="0.6"/>
+                    <circle cx="200" cy="200" r="30" fill="hsl(50, 70%, 60%)" opacity="0.3"/>
                   </svg>
                 )}
 
-                {/* Chain Resonance - Mandala with crosshairs */}
+                {/* Chain Resonance - Complex mandala */}
                 {index === 3 && (
-                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style={{ background: '#1a1a1a' }}>
+                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <radialGradient id="bg3" cx="50%" cy="50%">
-                        <stop offset="0%" stopColor="hsl(160, 70%, 22%)"/>
-                        <stop offset="100%" stopColor="hsl(160, 90%, 14%)"/>
+                        <stop offset="0%" stopColor="hsl(150, 70%, 22%)"/>
+                        <stop offset="100%" stopColor="hsl(150, 90%, 14%)"/>
                       </radialGradient>
                     </defs>
                     <rect width="400" height="400" fill="url(#bg3)"/>
-                    <circle cx="200" cy="200" r="120" fill="none" stroke="#00FF88" strokeWidth="5" opacity="0.8"/>
-                    <line x1="80" y1="200" x2="320" y2="200" stroke="#00FF88" strokeWidth="3" opacity="0.6"/>
-                    <line x1="200" y1="80" x2="200" y2="320" stroke="#20FFAA" strokeWidth="3" opacity="0.6"/>
-                    <circle cx="200" cy="200" r="80" fill="none" stroke="#40FFCC" strokeWidth="2" opacity="0.7"/>
-                    <circle cx="200" cy="200" r="40" fill="#00FF88" opacity="0.4"/>
+                    <circle cx="200" cy="200" r="120" fill="none" stroke="hsl(150, 80%, 70%)" strokeWidth="5" opacity="0.8"/>
+                    <line x1="80" y1="200" x2="320" y2="200" stroke="hsl(150, 90%, 80%)" strokeWidth="3" opacity="0.6"/>
+                    <line x1="200" y1="80" x2="200" y2="320" stroke="hsl(160, 90%, 80%)" strokeWidth="3" opacity="0.6"/>
+                    <circle cx="200" cy="200" r="80" fill="none" stroke="hsl(150, 100%, 85%)" strokeWidth="2" opacity="0.7"/>
+                    <circle cx="200" cy="200" r="40" fill="hsl(160, 80%, 70%)" opacity="0.4"/>
                   </svg>
                 )}
 
-                {/* Genesis Hash - Fibonacci spirals */}
+                {/* Genesis Hash - Fibonacci spiral */}
                 {index === 4 && (
-                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style={{ background: '#1a1a1a' }}>
+                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <radialGradient id="bg4" cx="50%" cy="50%">
-                        <stop offset="0%" stopColor="hsl(15, 80%, 25%)"/>
-                        <stop offset="100%" stopColor="hsl(15, 100%, 16%)"/>
+                        <stop offset="0%" stopColor="hsl(30, 80%, 25%)"/>
+                        <stop offset="100%" stopColor="hsl(30, 100%, 16%)"/>
                       </radialGradient>
                     </defs>
                     <rect width="400" height="400" fill="url(#bg4)"/>
-                    <circle cx="200" cy="200" r="140" fill="none" stroke="#FF4500" strokeWidth="6" opacity="0.9"/>
-                    <circle cx="200" cy="200" r="89" fill="none" stroke="#FFD700" strokeWidth="4" opacity="0.7"/>
-                    <circle cx="200" cy="200" r="55" fill="none" stroke="#FF6500" strokeWidth="3" opacity="0.8"/>
-                    <circle cx="200" cy="200" r="34" fill="none" stroke="#FFAA00" strokeWidth="2" opacity="0.9"/>
-                    <circle cx="200" cy="200" r="21" fill="#FF7700" opacity="0.5"/>
+                    <circle cx="200" cy="200" r="140" fill="none" stroke="hsl(30, 90%, 75%)" strokeWidth="6" opacity="0.9"/>
+                    <circle cx="200" cy="200" r="89" fill="none" stroke="hsl(40, 100%, 85%)" strokeWidth="4" opacity="0.7"/>
+                    <circle cx="200" cy="200" r="55" fill="none" stroke="hsl(30, 100%, 90%)" strokeWidth="3" opacity="0.8"/>
+                    <circle cx="200" cy="200" r="34" fill="none" stroke="hsl(40, 100%, 95%)" strokeWidth="2" opacity="0.9"/>
+                    <circle cx="200" cy="200" r="21" fill="hsl(30, 90%, 80%)" opacity="0.5"/>
                   </svg>
                 )}
 
-                {/* Network Apex - Sacred hexagon */}
+                {/* Network Apex - Sacred geometry */}
                 {index === 5 && (
-                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style={{ background: '#1a1a1a' }}>
+                  <svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <radialGradient id="bg5" cx="50%" cy="50%">
                         <stop offset="0%" stopColor="hsl(270, 90%, 28%)"/>
                         <stop offset="100%" stopColor="hsl(270, 100%, 18%)"/>
                       </radialGradient>
                       <filter id="glow5">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
                         <feMerge>
                           <feMergeNode in="coloredBlur"/>
                           <feMergeNode in="SourceGraphic"/>
@@ -214,10 +214,10 @@ export function ColorPaletteShowcase() {
                       </filter>
                     </defs>
                     <rect width="400" height="400" fill="url(#bg5)"/>
-                    <polygon points="200,60 338,140 338,260 200,340 62,260 62,140" fill="none" stroke="#9D00FF" strokeWidth="6" filter="url(#glow5)" opacity="0.9"/>
-                    <polygon points="200,100 298,160 298,240 200,300 102,240 102,160" fill="#BD40FF" opacity="0.3"/>
-                    <circle cx="200" cy="200" r="60" fill="none" stroke="#DD80FF" strokeWidth="4" opacity="0.8"/>
-                    <circle cx="200" cy="200" r="30" fill="#EE99FF" opacity="0.6"/>
+                    <polygon points="200,60 338,140 338,260 200,340 62,260 62,140" fill="none" stroke="hsl(270, 100%, 80%)" strokeWidth="6" filter="url(#glow5)" opacity="0.9"/>
+                    <polygon points="200,100 298,160 298,240 200,300 102,240 102,160" fill="hsl(280, 90%, 70%)" opacity="0.3"/>
+                    <circle cx="200" cy="200" r="60" fill="none" stroke="hsl(270, 100%, 95%)" strokeWidth="4" opacity="0.8"/>
+                    <circle cx="200" cy="200" r="30" fill="hsl(280, 100%, 90%)" opacity="0.6"/>
                   </svg>
                 )}
               </div>
@@ -305,7 +305,7 @@ export function ColorPaletteShowcase() {
             
             <div className="text-center">
               <div className="bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-orange-500/10 border border-cyan-400 p-6 rounded mb-6">
-                <h4 className="text-2xl font-bold text-cyan-400 mb-4 font-mono">🌍 WORLD'S FIRST BLOCKCHAIN PHYSICS NFT</h4>
+                <h4 className="text-2xl font-bold text-cyan-400 mb-4 font-mono">WORLD'S FIRST BLOCKCHAIN PHYSICS NFT</h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm font-mono">
                   <div className="text-center">
                     <div className="text-xl font-bold text-green-300 mb-1">MATHEMATICAL RARITY</div>
@@ -323,7 +323,7 @@ export function ColorPaletteShowcase() {
               </div>
               
               <p className="text-cyan-400 font-mono text-lg font-bold mb-2">
-                🚀 MONAD = First blockchain that makes mathematical rarity economically viable
+                MONAD = First blockchain that makes mathematical rarity economically viable
               </p>
               <p className="text-gray-400 font-mono text-sm">
                 Revolutionary blockchain physics NFTs: Only possible with Monad's speed, scale, and affordability

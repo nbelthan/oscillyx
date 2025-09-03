@@ -322,7 +322,7 @@ export function OscillyxGallery() {
     <div className="space-y-8">
       <div className="text-center">
         <h3 className="text-2xl font-bold text-white mb-2 font-mono">
-          🚀 BLOCKCHAIN PHYSICS RARITY IN ACTION
+          BLOCKCHAIN PHYSICS RARITY IN ACTION
         </h3>
         <p className="text-gray-400 font-mono text-sm">
           Live Monad blocks • Mathematical rarity calculation • 100% on-chain generation

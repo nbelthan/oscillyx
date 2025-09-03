@@ -98,7 +98,7 @@ export default function HomePage() {
                 </p>
                 <div className="bg-purple-900/20 border border-purple-400 p-4 rounded">
                   <p className="text-purple-300 font-mono text-sm">
-                    🚀 <span className="text-purple-200 font-bold">Monad Advantage:</span> 10,000 TPS enables real-time blockchain physics calculations that would timeout on other networks
+                    <span className="text-purple-200 font-bold">Monad Advantage:</span> 10,000 TPS enables real-time blockchain physics calculations that would timeout on other networks
                   </p>
                 </div>
               </div>
@@ -204,7 +204,7 @@ export default function HomePage() {
               className="border-2 border-purple-500 bg-black p-8 text-center"
             >
               <Crown className="w-12 h-12 text-purple-500 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-4 font-mono">🚀 BLOCKCHAIN PHYSICS RARITY</h3>
+              <h3 className="text-xl font-bold text-white mb-4 font-mono">BLOCKCHAIN PHYSICS RARITY</h3>
               <p className="text-gray-300 font-mono text-sm leading-relaxed">
                 <span className="text-cyan-400 font-bold">WORLD'S FIRST</span> NFT using actual blockchain characteristics: hash entropy × temporal significance × position uniqueness. Pure mathematical rarity.
               </p>
