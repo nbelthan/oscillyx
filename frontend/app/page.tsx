@@ -160,6 +160,225 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Revolutionary Algorithm Explanation - THE KEY DIFFERENTIATOR */}
+      <section className="py-20 bg-gradient-to-b from-black via-purple-900/10 to-black border-y-4 border-cyan-400">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-orange-400 mb-6 font-mono">
+              THE REVOLUTIONARY GENERATION ALGORITHM
+            </h2>
+            <p className="text-2xl text-white font-mono mb-4">
+              WORLD'S FIRST NFT WITH PURE BLOCKCHAIN-DERIVED TRAITS
+            </p>
+            <p className="text-lg text-gray-300 font-mono max-w-4xl mx-auto">
+              No metadata servers. No IPFS. No external dependencies. Every single pixel is calculated 
+              mathematically from immutable blockchain data and rendered as SVG code directly on-chain.
+            </p>
+          </div>
+
+          {/* The Complete Algorithm */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-cyan-400 text-center mb-8 font-mono">
+              THE COMPLETE ON-CHAIN ALGORITHM
+            </h3>
+            
+            <div className="bg-black border-2 border-cyan-400 p-8 font-mono text-sm">
+              <div className="text-green-400 mb-6">
+                <p className="text-lg font-bold mb-4">STEP 1: CAPTURE BLOCKCHAIN STATE</p>
+                <div className="pl-4 text-gray-300">
+                  <p>• Block Number (uint32): Exact Monad block when minted</p>
+                  <p>• Position in Block (uint16): Order within that block</p>
+                  <p>• Timestamp (uint256): Precise moment of creation</p>
+                  <p>• Generate Seed: keccak256(block, position, timestamp)</p>
+                </div>
+              </div>
+
+              <div className="text-yellow-400 mb-6">
+                <p className="text-lg font-bold mb-4">STEP 2: CALCULATE BLOCKCHAIN PHYSICS SCORE</p>
+                <div className="pl-4 text-gray-300">
+                  <p>• Hash Entropy = seed % 100 (40% weight)</p>
+                  <p>• Temporal Significance = blockNumber % 100 (30% weight)</p>
+                  <p>• Position Uniqueness = positionInBlock % 100 (30% weight)</p>
+                  <p>• Total Score = (hashEntropy × 2) + temporalSig + positionUniq</p>
+                  <p className="text-cyan-300 mt-2">Score Range: 0-400 determines rarity tier</p>
+                </div>
+              </div>
+
+              <div className="text-purple-400 mb-6">
+                <p className="text-lg font-bold mb-4">STEP 3: DETERMINE VISUAL COMPLEXITY</p>
+                <div className="pl-4 text-gray-300">
+                  <p>• Score 0-99: Network Pulse (concentric rings)</p>
+                  <p>• Score 100-199: Block Echo (wave interference)</p>
+                  <p>• Score 200-299: Digital Moment (crystal diamonds)</p>
+                  <p>• Score 300-349: Chain Resonance (mandala patterns)</p>
+                  <p>• Score 350-399: Genesis Hash (Fibonacci spirals)</p>
+                  <p>• Score 400+: Network Apex (sacred geometry)</p>
+                </div>
+              </div>
+
+              <div className="text-orange-400">
+                <p className="text-lg font-bold mb-4">STEP 4: GENERATE SVG ON-CHAIN</p>
+                <div className="pl-4 text-gray-300">
+                  <p>• Primary Hue = seed % 360 (background gradient)</p>
+                  <p>• Secondary Hue = (seed &gt;&gt; 8) % 360 (main patterns)</p>
+                  <p>• Tertiary Hue = (seed &gt;&gt; 16) % 360 (accents)</p>
+                  <p>• Construct SVG paths based on rarity tier</p>
+                  <p>• Encode as base64 data URI</p>
+                  <p className="text-cyan-300 mt-2">Result: Complete NFT image generated from pure math</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Why This Is Revolutionary */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div className="border-2 border-purple-500 bg-purple-900/20 p-8">
+              <h4 className="text-2xl font-bold text-purple-400 mb-4 font-mono">
+                TRADITIONAL NFTs
+              </h4>
+              <ul className="space-y-3 text-gray-300 font-mono text-sm">
+                <li className="flex items-start">
+                  <span className="text-red-400 mr-2">✗</span>
+                  <span>Artist creates 10,000 images manually</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-400 mr-2">✗</span>
+                  <span>Images stored on centralized servers/IPFS</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-400 mr-2">✗</span>
+                  <span>Rarity decided by human (subjective)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-400 mr-2">✗</span>
+                  <span>Metadata can be changed/lost</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-400 mr-2">✗</span>
+                  <span>Requires trust in project team</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-400 mr-2">✗</span>
+                  <span>Can disappear if servers go down</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="border-2 border-cyan-400 bg-cyan-900/20 p-8">
+              <h4 className="text-2xl font-bold text-cyan-400 mb-4 font-mono">
+                OSCILLYX NFTs
+              </h4>
+              <ul className="space-y-3 text-gray-300 font-mono text-sm">
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">✓</span>
+                  <span>Generated mathematically from blockchain data</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">✓</span>
+                  <span>100% stored on-chain forever (no external deps)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">✓</span>
+                  <span>Rarity from cryptographic truth (objective)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">✓</span>
+                  <span>Immutable - can NEVER be changed</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">✓</span>
+                  <span>Trustless - pure mathematics</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-400 mr-2">✓</span>
+                  <span>Exists as long as Monad exists</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* The 7 On-Chain Traits */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-orange-400 text-center mb-8 font-mono">
+              7 IMMUTABLE ON-CHAIN TRAITS PER NFT
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="bg-gray-900 border border-gray-700 p-4">
+                <p className="text-cyan-400 font-bold font-mono mb-1">Rarity Tier</p>
+                <p className="text-xs text-gray-400 font-mono">Network Pulse to Network Apex</p>
+              </div>
+              <div className="bg-gray-900 border border-gray-700 p-4">
+                <p className="text-cyan-400 font-bold font-mono mb-1">Physics Score</p>
+                <p className="text-xs text-gray-400 font-mono">0-400+ mathematical rarity</p>
+              </div>
+              <div className="bg-gray-900 border border-gray-700 p-4">
+                <p className="text-cyan-400 font-bold font-mono mb-1">Block Number</p>
+                <p className="text-xs text-gray-400 font-mono">Exact Monad block of mint</p>
+              </div>
+              <div className="bg-gray-900 border border-gray-700 p-4">
+                <p className="text-cyan-400 font-bold font-mono mb-1">Position in Block</p>
+                <p className="text-xs text-gray-400 font-mono">Order within block (1st, 2nd...)</p>
+              </div>
+              <div className="bg-gray-900 border border-gray-700 p-4">
+                <p className="text-cyan-400 font-bold font-mono mb-1">Primary Hue</p>
+                <p className="text-xs text-gray-400 font-mono">0-360° background color</p>
+              </div>
+              <div className="bg-gray-900 border border-gray-700 p-4">
+                <p className="text-cyan-400 font-bold font-mono mb-1">Secondary Hue</p>
+                <p className="text-xs text-gray-400 font-mono">0-360° pattern color</p>
+              </div>
+              <div className="bg-gray-900 border border-gray-700 p-4">
+                <p className="text-cyan-400 font-bold font-mono mb-1">Tertiary Hue</p>
+                <p className="text-xs text-gray-400 font-mono">0-360° accent color</p>
+              </div>
+              <div className="bg-gray-900 border border-gray-700 p-4">
+                <p className="text-cyan-400 font-bold font-mono mb-1">Cryptographic Seed</p>
+                <p className="text-xs text-gray-400 font-mono">Unique 128-bit identifier</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Epic Statement */}
+          <div className="text-center bg-gradient-to-r from-cyan-900/30 via-purple-900/30 to-orange-900/30 border-4 border-transparent bg-clip-padding" 
+               style={{ borderImage: 'linear-gradient(to right, #00D4FF, #9D00FF, #FF4500) 1' }}>
+            <div className="p-12">
+              <h3 className="text-4xl font-bold text-white mb-6 font-mono">
+                WHY THIS CHANGES EVERYTHING
+              </h3>
+              <p className="text-xl text-cyan-400 font-mono mb-4">
+                FIRST TIME IN HISTORY: NFT RARITY FROM PHYSICS, NOT PEOPLE
+              </p>
+              <p className="text-lg text-gray-300 font-mono mb-6 max-w-4xl mx-auto">
+                Every other NFT collection requires you to trust that "golden fur" is rarer than "silver fur" 
+                because someone decided it should be. Oscillyx requires zero trust - rarity emerges from the 
+                immutable mathematics of the blockchain itself.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left max-w-5xl mx-auto">
+                <div>
+                  <p className="text-green-400 font-bold font-mono mb-2">VERIFIABLE</p>
+                  <p className="text-sm text-gray-400 font-mono">
+                    Anyone can recalculate the rarity from the block hash. No hidden algorithms.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-purple-400 font-bold font-mono mb-2">ETERNAL</p>
+                  <p className="text-sm text-gray-400 font-mono">
+                    As long as Monad blockchain exists, these NFTs exist. No servers needed.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-orange-400 font-bold font-mono mb-2">TRUSTLESS</p>
+                  <p className="text-sm text-gray-400 font-mono">
+                    Pure mathematics. No team can rug. No metadata can change. Forever.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Color Palette Showcase */}
       <ColorPaletteShowcase />
 
@@ -199,7 +418,7 @@ export default function HomePage() {
                 Derived from middle 8 bytes of hash
               </p>
               <p className="text-xs text-gray-400 font-mono">
-                <span className="text-purple-300">Formula:</span> (hash >> 8) % 360
+                <span className="text-purple-300">Formula:</span> (hash &gt;&gt; 8) % 360
               </p>
               <p className="text-xs text-gray-500 font-mono mt-2">
                 Defines pattern strokes and accent colors
@@ -212,7 +431,7 @@ export default function HomePage() {
                 Derived from last 8 bytes of hash
               </p>
               <p className="text-xs text-gray-400 font-mono">
-                <span className="text-orange-300">Formula:</span> (hash >> 16) % 360
+                <span className="text-orange-300">Formula:</span> (hash &gt;&gt; 16) % 360
               </p>
               <p className="text-xs text-gray-500 font-mono mt-2">
                 Adds depth with additional accent elements
