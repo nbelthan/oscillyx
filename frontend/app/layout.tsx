@@ -8,15 +8,23 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
 export const metadata: Metadata = {
-  title: 'Oscillyx | On-Chain Generative Art on Monad',
-  description: '100% on-chain generative NFT collection encoding block-level concurrency dynamics on Monad. Each token captures the cohort dynamics of its minting block.',
-  keywords: ['NFT', 'Monad', 'On-chain', 'Generative Art', 'Blockchain', 'Web3'],
+  title: 'Oscillyx | World\'s First Blockchain Physics NFT on Monad',
+  description: 'Revolutionary NFT collection with rarity determined by pure blockchain mathematics. Hash entropy × temporal significance × position uniqueness = mathematical rarity. Only possible on Monad.',
+  keywords: ['NFT', 'Monad', 'Blockchain Physics', 'Mathematical Rarity', 'On-chain', 'Web3', 'Cryptographic Art'],
   authors: [{ name: 'Oscillyx Team' }],
   viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#00ffff',
+  themeColor: '#00D4FF',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.svg'
+  },
   openGraph: {
-    title: 'Oscillyx | On-Chain Generative Art on Monad',
-    description: 'Mint fully on-chain generative NFTs that encode block-level concurrency dynamics.',
+    title: 'Oscillyx | World\'s First Blockchain Physics NFT on Monad',
+    description: 'Revolutionary NFT with mathematical rarity from blockchain physics. Only possible on Monad\'s 1-second blocks and ultra-low gas.',
     type: 'website',
     images: [
       {
@@ -29,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Oscillyx | On-Chain Generative Art on Monad',
-    description: 'Mint fully on-chain generative NFTs that encode block-level concurrency dynamics.',
+    title: 'Oscillyx | World\'s First Blockchain Physics NFT on Monad',
+    description: 'Revolutionary NFT with mathematical rarity from blockchain physics. Only possible on Monad.',
     images: ['/og-image.png'],
   },
 };

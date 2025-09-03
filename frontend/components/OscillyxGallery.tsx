@@ -93,34 +93,119 @@ function generateLissajous(seed: string, width: number = 200, height: number = 2
   return path;
 }
 
-// Generate SVG exactly like our smart contract does
+// Generate complex blockchain physics SVG based on rarity
 function generateBlockchainPhysicsSVG(rarity: number, seed: number, tierName: string, tierColor: string): string {
-  const radius = 60 + (rarity * 20);
   const hue1 = seed % 360;
   const hue2 = (seed >> 8) % 360;
-  const strokeWidth = 2 + rarity;
+  const hue3 = (seed >> 16) % 360;
   
-  return `
-    <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block; background: #1a1a1a;">
-      <!-- Background -->
-      <rect width="400" height="400" fill="hsl(${hue1}, 50%, 20%)"/>
+  // Different patterns based on rarity level
+  switch(rarity) {
+    case 0: // Network Pulse - Simple pulse rings
+      return `
+        <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+          <defs>
+            <radialGradient id="bg${seed}" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="hsl(${hue1}, 40%, 15%)"/>
+              <stop offset="100%" stop-color="hsl(${hue1}, 60%, 8%)"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg${seed})"/>
+          <circle cx="200" cy="200" r="80" fill="none" stroke="hsl(${hue2}, 70%, 60%)" stroke-width="3" opacity="0.8"/>
+          <circle cx="200" cy="200" r="60" fill="none" stroke="hsl(${hue2}, 80%, 70%)" stroke-width="2" opacity="0.6"/>
+          <circle cx="200" cy="200" r="40" fill="none" stroke="hsl(${hue2}, 90%, 80%)" stroke-width="2" opacity="0.4"/>
+        </svg>`;
       
-      <!-- Main circle - matches contract exactly -->
-      <circle cx="200" cy="200" r="${radius}" 
-              fill="none" 
-              stroke="hsl(${hue2}, 70%, 60%)" 
-              stroke-width="${strokeWidth}"/>
+    case 1: // Block Echo - Wave interference
+      return `
+        <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+          <defs>
+            <radialGradient id="bg${seed}" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="hsl(${hue1}, 50%, 18%)"/>
+              <stop offset="100%" stop-color="hsl(${hue1}, 70%, 10%)"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg${seed})"/>
+          <circle cx="200" cy="200" r="100" fill="none" stroke="hsl(${hue2}, 70%, 60%)" stroke-width="4" opacity="0.7"/>
+          <circle cx="170" cy="170" r="60" fill="none" stroke="hsl(${hue2}, 80%, 70%)" stroke-width="3" opacity="0.5"/>
+          <circle cx="230" cy="230" r="60" fill="none" stroke="hsl(${hue3}, 80%, 70%)" stroke-width="3" opacity="0.5"/>
+        </svg>`;
       
-      <!-- Tier name at bottom -->
-      <text x="200" y="350" 
-            text-anchor="middle" 
-            fill="white" 
-            font-family="monospace" 
-            font-size="16">
-        ${tierName}
-      </text>
-    </svg>
-  `.trim();
+    case 2: // Digital Moment - Crystal formations
+      return `
+        <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+          <defs>
+            <radialGradient id="bg${seed}" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="hsl(${hue1}, 60%, 20%)"/>
+              <stop offset="100%" stop-color="hsl(${hue1}, 80%, 12%)"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg${seed})"/>
+          <polygon points="200,120 280,200 200,280 120,200" fill="none" stroke="hsl(${hue2}, 80%, 70%)" stroke-width="4" opacity="0.8"/>
+          <polygon points="200,140 260,200 200,260 140,200" fill="none" stroke="hsl(${hue3}, 90%, 80%)" stroke-width="3" opacity="0.6"/>
+          <circle cx="200" cy="200" r="30" fill="hsl(${hue2}, 70%, 60%)" opacity="0.3"/>
+        </svg>`;
+      
+    case 3: // Chain Resonance - Complex mandala
+      return `
+        <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+          <defs>
+            <radialGradient id="bg${seed}" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="hsl(${hue1}, 70%, 22%)"/>
+              <stop offset="100%" stop-color="hsl(${hue1}, 90%, 14%)"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg${seed})"/>
+          <circle cx="200" cy="200" r="120" fill="none" stroke="hsl(${hue2}, 80%, 70%)" stroke-width="5" opacity="0.8"/>
+          <line x1="80" y1="200" x2="320" y2="200" stroke="hsl(${hue2}, 90%, 80%)" stroke-width="3" opacity="0.6"/>
+          <line x1="200" y1="80" x2="200" y2="320" stroke="hsl(${hue3}, 90%, 80%)" stroke-width="3" opacity="0.6"/>
+          <circle cx="200" cy="200" r="80" fill="none" stroke="hsl(${hue2}, 100%, 85%)" stroke-width="2" opacity="0.7"/>
+          <circle cx="200" cy="200" r="40" fill="hsl(${hue3}, 80%, 70%)" opacity="0.4"/>
+        </svg>`;
+      
+    case 4: // Genesis Hash - Fibonacci spiral
+      return `
+        <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+          <defs>
+            <radialGradient id="bg${seed}" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="hsl(${hue1}, 80%, 25%)"/>
+              <stop offset="100%" stop-color="hsl(${hue1}, 100%, 16%)"/>
+            </radialGradient>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg${seed})"/>
+          <circle cx="200" cy="200" r="140" fill="none" stroke="hsl(${hue2}, 90%, 75%)" stroke-width="6" opacity="0.9"/>
+          <circle cx="200" cy="200" r="89" fill="none" stroke="hsl(${hue3}, 100%, 85%)" stroke-width="4" opacity="0.7"/>
+          <circle cx="200" cy="200" r="55" fill="none" stroke="hsl(${hue2}, 100%, 90%)" stroke-width="3" opacity="0.8"/>
+          <circle cx="200" cy="200" r="34" fill="none" stroke="hsl(${hue3}, 100%, 95%)" stroke-width="2" opacity="0.9"/>
+          <circle cx="200" cy="200" r="21" fill="hsl(${hue2}, 90%, 80%)" opacity="0.5"/>
+        </svg>`;
+      
+    case 5: // Network Apex - Sacred geometry
+      return `
+        <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="display: block;">
+          <defs>
+            <radialGradient id="bg${seed}" cx="50%" cy="50%">
+              <stop offset="0%" stop-color="hsl(${hue1}, 90%, 28%)"/>
+              <stop offset="100%" stop-color="hsl(${hue1}, 100%, 18%)"/>
+            </radialGradient>
+            <filter id="glow${seed}">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <rect width="400" height="400" fill="url(#bg${seed})"/>
+          <polygon points="200,60 338,140 338,260 200,340 62,260 62,140" fill="none" stroke="hsl(${hue2}, 100%, 80%)" stroke-width="6" filter="url(#glow${seed})" opacity="0.9"/>
+          <polygon points="200,100 298,160 298,240 200,300 102,240 102,160" fill="hsl(${hue3}, 90%, 70%)" opacity="0.3"/>
+          <circle cx="200" cy="200" r="60" fill="none" stroke="hsl(${hue2}, 100%, 95%)" stroke-width="4" opacity="0.8"/>
+          <circle cx="200" cy="200" r="30" fill="hsl(${hue3}, 100%, 90%)" opacity="0.6"/>
+        </svg>`;
+      
+    default:
+      return generateBlockchainPhysicsSVG(0, seed, tierName, tierColor);
+  }
 }
 
 function getDensityTier(cohortSize: number) {
