@@ -150,6 +150,16 @@ async function handleMintAuth(request: Request, env: Env): Promise<Response> {
       });
     }
 
+    // 🚨 CHECK: 1 MINT PER WALLET LIMIT 🚨
+    const addressKey = `minted:${address.toLowerCase()}`;
+    const hasAlreadyMinted = await env.OSCILLYX_KV.get(addressKey);
+    if (hasAlreadyMinted) {
+      return new Response(JSON.stringify({ error: 'Address has already minted. Limit: 1 NFT per wallet.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     // Check if already used this tweet
     const tweetKey = `tweet:${tweetId}`;
     const existingTweet = await env.OSCILLYX_KV.get(tweetKey);
@@ -187,9 +197,10 @@ async function handleMintAuth(request: Request, env: Env): Promise<Response> {
       });
     }
 
-    // Store used tweet and update nonce
+    // Store used tweet, update nonce, and mark address as minted
     await env.OSCILLYX_KV.put(tweetKey, address, { expirationTtl: 86400 * 7 }); // 7 days
     await env.OSCILLYX_KV.put(nonceKey, newNonce.toString());
+    await env.OSCILLYX_KV.put(addressKey, new Date().toISOString()); // 🚨 MARK AS MINTED (permanent)
 
     return new Response(JSON.stringify(response), {
       status: 200,
@@ -206,6 +217,60 @@ async function handleMintAuth(request: Request, env: Env): Promise<Response> {
     return new Response(JSON.stringify({ error: 'Internal server error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
+    });
+  }
+}
+
+async function handleCheckMinted(request: Request, env: Env): Promise<Response> {
+  if (request.method !== 'GET') {
+    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+      status: 405,
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  }
+
+  try {
+    const url = new URL(request.url);
+    const address = url.searchParams.get('address');
+
+    if (!address || !ethers.isAddress(address)) {
+      return new Response(JSON.stringify({ error: 'Invalid address parameter' }), {
+        status: 400,
+        headers: { 
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+
+    const addressKey = `minted:${address.toLowerCase()}`;
+    const mintedTimestamp = await env.OSCILLYX_KV.get(addressKey);
+    
+    return new Response(JSON.stringify({ 
+      address: address.toLowerCase(),
+      hasMinted: !!mintedTimestamp,
+      mintedAt: mintedTimestamp || null
+    }), {
+      status: 200,
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    });
+
+  } catch (error) {
+    console.error('Check minted error:', error);
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+      status: 500,
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
     });
   }
 }
@@ -232,6 +297,9 @@ export default {
     switch (url.pathname) {
       case '/mint-auth':
         return handleMintAuth(request, env);
+      
+      case '/check-minted':
+        return handleCheckMinted(request, env);
       
       case '/health':
         return new Response(JSON.stringify({ status: 'ok', timestamp: Date.now() }), {
