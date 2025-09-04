@@ -22,7 +22,7 @@ Building something that would cost $50,000+ to deploy on Ethereum but runs perfe
 Each NFT's rarity emerges from the IMMUTABLE MATHEMATICS of the block it was minted in. No human subjectivity. Pure cryptographic truth.
 
 💎 **FREE MINT** - 10,000 supply
-🚀 **oscillyx.vercel.app** - Launching next week
+🚀 **oscillyx.vercel.app** - Launching Sept 2025
 
 This collection literally cannot exist on any other blockchain. Monad's speed + parallelism + ultra-low gas makes the impossible possible.
 
@@ -53,7 +53,7 @@ Your NFT will be as unique as the cryptographic fingerprint of its birth block. 
 
 🆓 **FREE MINT** - 10,000 supply, 1 per wallet
 🚀 **oscillyx.vercel.app** 
-Launching next week. This is going to change how people think about NFT rarity forever.
+Launching Sept 2025. This is going to change how people think about NFT rarity forever.
 
 The first 10,000 to experience TRUE mathematical rarity. 
 

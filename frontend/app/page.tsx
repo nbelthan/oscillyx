@@ -19,10 +19,10 @@ export default function HomePage() {
   const { chain } = useNetwork();
   const [showMintFlow, setShowMintFlow] = useState(false);
 
-  // Mock data for demo (replace with real contract reads when deployed)
-  const totalSupply = 847;
+  // Preview mode - no minting has occurred yet
+  const totalSupply = 0;
   const maxSupply = 10000;
-  const mintingActive = true;
+  const mintingActive = false;
   const remainingSupply = maxSupply - totalSupply;
 
   const isCorrectNetwork = chain?.id === monadTestnet.id;
@@ -70,7 +70,7 @@ export default function HomePage() {
                   FREE MINT • 1 PER WALLET
                 </span>
                 <span className="bg-orange-900/20 border border-orange-400 text-orange-400 px-4 py-2 font-mono text-sm font-bold tracking-wider animate-pulse">
-                  LAUNCHING NEXT WEEK
+                  LAUNCHING SEPT 2025
                 </span>
               </div>
               
@@ -121,7 +121,7 @@ export default function HomePage() {
                   <Gift className="w-6 h-6 mr-3 inline" />
                   {!isConnected ? 'CONNECT WALLET' : 
                    !isCorrectNetwork ? 'SWITCH TO MONAD' :
-                   'COMING SOON - LAUNCHING NEXT WEEK'}
+                   'COMING SOON - LAUNCHING SEPT 2025'}
                 </motion.button>
 
                 <motion.a
@@ -161,7 +161,7 @@ export default function HomePage() {
                     Minting disabled. This is a preview of the revolutionary blockchain physics NFT system.
                   </p>
                   <p className="text-white font-mono text-sm mt-1">
-                    <span className="text-cyan-400 font-bold">FREE MINT</span> launches next week with <span className="text-green-400 font-bold">1 per wallet limit</span>
+                    <span className="text-cyan-400 font-bold">FREE MINT</span> launches Sept 2025 with <span className="text-green-400 font-bold">1 per wallet limit</span>
                   </p>
                 </div>
               </div>
