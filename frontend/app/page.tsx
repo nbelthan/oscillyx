@@ -67,7 +67,10 @@ export default function HomePage() {
               <div className="flex items-center space-x-3 mb-6">
                 <Gift className="w-8 h-8 text-green-400" />
                 <span className="bg-green-900/20 border border-green-400 text-green-400 px-4 py-2 font-mono text-sm font-bold tracking-wider">
-                  FREE MINT
+                  FREE MINT • 1 PER WALLET
+                </span>
+                <span className="bg-orange-900/20 border border-orange-400 text-orange-400 px-4 py-2 font-mono text-sm font-bold tracking-wider animate-pulse">
+                  LAUNCHING NEXT WEEK
                 </span>
               </div>
               
@@ -107,14 +110,18 @@ export default function HomePage() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => setShowMintFlow(true)}
-                  disabled={!isConnected || !isCorrectNetwork || !mintingActive}
+                  onClick={() => {
+                    if (!isConnected) {
+                      setShowMintFlow(true);
+                    }
+                  }}
+                  disabled={isConnected}
                   className="bg-cyan-400 hover:bg-cyan-300 text-black font-mono font-bold py-4 px-8 text-lg border-2 border-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                 >
                   <Gift className="w-6 h-6 mr-3 inline" />
                   {!isConnected ? 'CONNECT WALLET' : 
                    !isCorrectNetwork ? 'SWITCH TO MONAD' :
-                   !mintingActive ? 'MINTING PAUSED' : 'MINT YOUR COLORS'}
+                   'COMING SOON - LAUNCHING NEXT WEEK'}
                 </motion.button>
 
                 <motion.a
@@ -143,6 +150,19 @@ export default function HomePage() {
                 <div className="text-center">
                   <div className="text-2xl font-bold text-white font-mono">FREE</div>
                   <div className="text-sm text-gray-400 font-mono">PRICE</div>
+                </div>
+              </div>
+
+              {/* Preview Notice */}
+              <div className="mt-4 p-4 bg-orange-900/20 border-2 border-orange-400 rounded-lg">
+                <div className="text-center">
+                  <p className="text-orange-400 font-mono font-bold text-lg">🚀 PREVIEW MODE</p>
+                  <p className="text-orange-300 font-mono text-sm mt-2">
+                    Minting disabled. This is a preview of the revolutionary blockchain physics NFT system.
+                  </p>
+                  <p className="text-white font-mono text-sm mt-1">
+                    <span className="text-cyan-400 font-bold">FREE MINT</span> launches next week with <span className="text-green-400 font-bold">1 per wallet limit</span>
+                  </p>
                 </div>
               </div>
             </motion.div>
