@@ -1,12 +1,12 @@
 {
   "network": "unknown",
   "chainId": 10143,
-  "address": "0x213D14d79DF0c6578570E63F54C67b4DFa11f9B2",
+  "address": "0xfEC1796d11d0E396d70d90A13ac155b549Ca0a98",
   "deployer": "0x36983B1b28BAFeCC05AC74Cd3E9B0F5E83a9FD09",
-  "txHash": "0x28d11cc76df8a242ec74baa7be4dede23c3d020fe50135a002a4ad8c33878504",
-  "blockNumber": 34716672,
+  "txHash": "0x29f9cc786a5e3483cf1c0c0e814c94cc74e230f8ff4f4b87156736016f947bb3",
+  "blockNumber": 35120195,
   "gasUsed": "6092194",
-  "timestamp": "2025-09-02T22:34:11.883Z",
+  "timestamp": "2025-09-04T21:24:16.741Z",
   "config": {
     "maxSupply": 10000,
     "signer": "0x36983B1b28BAFeCC05AC74Cd3E9B0F5E83a9FD09",

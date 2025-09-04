@@ -46,6 +46,14 @@ export default function HomePage() {
             </div>
             
             <div className="flex items-center space-x-4">
+              <a 
+                href="https://x.com/nbelthan" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-cyan-400 hover:text-cyan-300 transition-colors font-mono text-sm px-3 py-1 border border-cyan-400 hover:border-cyan-300 rounded"
+              >
+                SUPPORT THE DEV
+              </a>
               {!isCorrectNetwork && isConnected && <NetworkSwitcher />}
               <ConnectButton />
             </div>
